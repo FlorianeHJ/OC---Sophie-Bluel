@@ -24,28 +24,25 @@ body {
   margin: 0 20px;
 }
 
-header {
-  min-height: 50px;
-}
-
-.header-container {
+nav {
   display: flex;
-  align-items: center;
-  height: 100%;
+  flex-direction: row;
+}
+#img-header {
+  width: 30px;
+  margin-top: 20px;
 }
 
 .header-left {
   display: flex;
 }
 
-.header-left img {
-  margin-top: 10px;
-  width: 50%;
-  display: flex;
-}
-
 .header-right ul {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+}
+
+.header-right ul li {
+  padding: 20px;
+  display: flex;
 }
