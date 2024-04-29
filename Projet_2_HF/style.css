@@ -25,7 +25,7 @@ a {
 
 body {
   background: white;
-  margin: 0 30px;
+  margin: 0 35px;
   font-family: "Raleway", sans-serif;
 }
 
@@ -38,17 +38,10 @@ nav {
   position: relative;
 }
 
-.header-left {
-  margin: 0;
-}
-
 #img-header {
   width: 27%;
   margin-top: 20px;
-}
-
-.header-right {
-  margin: 0;
+  cursor: pointer;
 }
 
 .header-right ul {
@@ -62,7 +55,7 @@ nav {
   display: flex;
   cursor: pointer;
   transition: 0.15s;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .header-right li:first-child {
@@ -110,11 +103,11 @@ nav {
 }
 
 .headline h1 {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .headline h2 {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   margin: 5px 0 20px 0;
   font-weight: 100;
 }
@@ -153,14 +146,19 @@ nav {
   margin: 20px 0;
 }
 
+.filter-bar span {
+  font-weight: bold;
+}
+
 .button {
   border: var(--contour-button) 1px solid;
   background: white;
-  padding: 10px;
+  padding: 13px;
   border-radius: 20px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   cursor: pointer;
   margin-left: 8px;
+  font-weight: bold;
 }
 
 .button i {
@@ -193,8 +191,8 @@ nav {
 /* section-accomodation */
 
 .section-accomodation {
-  display: grid;
-  grid-template-columns: 70% 30%;
+  display: flex;
+  flex-direction: row;
   gap: 30px;
   position: relative;
 }
@@ -202,8 +200,9 @@ nav {
 .accomodation-left {
   background: var(--main-bg-color);
   border-radius: 10px;
-  max-width: 80%;
-  height: 24%;
+  max-width: 75%;
+
+  min-height: 100px;
 }
 
 .accomodation-left-container,
@@ -220,7 +219,7 @@ nav {
 .popular-main {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
   gap: 20px;
 }
 
@@ -229,8 +228,8 @@ nav {
   border-radius: 10px;
   transition: 0.2s;
   box-shadow: 0px 0px 5px #48464666;
-  width: 170px;
-  height: 135px;
+  width: 200px;
+  height: 160px;
 }
 
 .card-hotel:hover {
@@ -244,79 +243,188 @@ nav {
 .bg-hotelport {
   border-radius: 10px 10px 0 0;
   width: 100%;
-  height: 70px;
+  height: 95px;
   background: url("./Images/hebergements/fred-kleber.jpg") center/cover;
 }
 .bg-hotelamina {
   border-radius: 10px 10px 0 0;
   width: 100%;
-  height: 70px;
+  height: 95px;
   background: url("./Images/hebergements/febrian-zakaria.jpg") center/cover;
 }
 .bg-hotellesmouettes {
   border-radius: 10px 10px 0 0;
   width: 100%;
-  height: 70px;
+  height: 95px;
   background: url("./Images/hebergements/reisetopia.jpg") center/cover;
 }
 .bg-hoteldelamer {
   border-radius: 10px 10px 0 0;
   width: 100%;
-  height: 70px;
+  height: 95px;
   background: url("./Images/hebergements/annie-spratt.jpg") center/cover;
 }
 .bg-aubergecanebiere {
   border-radius: 10px 10px 0 0;
   width: 100%;
-  height: 70px;
+  height: 95px;
   background: url("./Images/hebergements/marcus-loke.jpg") center/cover;
 }
 .bg-aubergelepanier {
   border-radius: 10px 10px 0 0;
   width: 100%;
-  height: 70px;
+  height: 95px;
   background: url("./Images/hebergements/nicate-lee.jpg") center/cover;
 }
 
 .hotel-name {
-  font-size: 0.75rem;
-  margin: 5px;
+  font-size: 0.85rem;
+  margin: 6px;
 }
 
 .price-info {
-  font-size: 0.7rem;
-  margin-left: 5px;
+  font-size: 0.8rem;
+  margin-left: 6px;
 }
 
 .stars {
   font-size: 0.6rem;
   color: var(--main-color);
-  margin: 5px;
+  margin: 6px;
 }
 
-.greystar {
+/* .greystar {
   color: rgba(113, 113, 179, 0.377);
-}
+} */
 
 .accomodation-bottom {
-  margin-top: 20px;
+  margin-top: 30px;
   color: black;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .accomodation-right {
   background: var(--main-bg-color);
   border-radius: 10px;
   height: 35%;
+  max-width: 30%;
+  min-height: 100px;
 }
 
-.accomodation-right i {
-  position: absolute;
-  top: 10px;
-  width: 30px;
-  height: 30px;
-  right: 50px;
-  color: var(--main-bg-color);
-  z-index: 500;
+.popular-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.popular-header i {
+  color: var(--main-color);
+}
+
+.popular-main {
+  display: flex;
+}
+
+.card-hotel2 {
+  background: white;
+  border-radius: 10px;
+  transition: 0.2s;
+  box-shadow: 0px 0px 5px #48464666;
+  width: 300px;
+  height: 120px;
+}
+
+.card-hotel2:hover {
+  transform: scale(1.05);
+}
+
+.card2-container {
+  display: flex;
+  flex-direction: row;
+  padding: 3px;
+}
+.bg-hotelsoleilmatin {
+  border-radius: 10px 0 0 10px;
+  background: url("./Images/hebergements/emile-guillemot.jpg") center/cover;
+  width: 30%;
+  height: 113px;
+}
+
+.bg-coeureau {
+  border-radius: 10px 0 0 10px;
+  background: url("./Images/hebergements/aw-creative.jpg") center/cover;
+  width: 30%;
+  height: 113px;
+}
+.bg-bleublanc {
+  border-radius: 10px 0 0 10px;
+  background: url("./Images/hebergements/febrian-zakaria2.jpg") center/cover;
+  width: 30%;
+  height: 113px;
+}
+
+.stars2 {
+  font-size: 0.5rem;
+  color: var(--main-color);
+  margin: 5px;
+  padding-top: 45px;
+}
+
+.section-activity {
+  margin-top: 20px 0 0 20px;
+}
+
+.activity-main {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: space-around;
+}
+
+.activity-card {
+  box-shadow: 0px 0px 9px 0px #4846464d;
+  border-radius: 10px;
+  width: 230px;
+  height: 330px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.bg-vieuxport {
+  background: url("./Images/activites/reno-laithienne.jpg") center/cover;
+  border-radius: 10px 10px 0 0;
+  width: 230px;
+  height: 285px;
+}
+.bg-fortpomegues {
+  background: url("./Images/activites/paul-hermann.jpg") center/cover;
+  border-radius: 10px 10px 0 0;
+  width: 220px;
+  height: 285px;
+}
+.bg-calanques {
+  background: url("./Images/activites/kilyan-sockalingum.jpg") center/cover;
+  border-radius: 10px 10px 0 0;
+  width: 220px;
+  height: 285px;
+}
+.bg-notredame {
+  background: url("./Images/activites/florian-wehde.jpg") center/cover;
+  border-radius: 10px 10px 0 0;
+  width: 220px;
+  height: 285px;
+}
+
+.activity-card h4 {
+  margin: 15px 0 0 10px;
+  font-size: 0.75rem;
+}
+
+.activity-card:hover {
+  transform: scale(1.1);
+}
+
+.section-activity h2 {
+  margin-top: 35px;
 }
