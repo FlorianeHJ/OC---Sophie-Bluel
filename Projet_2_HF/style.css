@@ -289,10 +289,6 @@ nav {
   color: var(--main-color);
 }
 
-.popular-main {
-  display: flex;
-}
-
 .card-hotel2 {
   background: white;
   border-radius: 10px;
