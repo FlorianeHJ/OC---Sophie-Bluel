@@ -94,7 +94,7 @@ nav {
   min-width: 150px;
 }
 
-.search-bar button {
+#btn-search {
   cursor: pointer;
   padding: 9.5px;
   margin-left: -5px;
@@ -112,6 +112,9 @@ nav {
 
 .filter-bar {
   margin: 20px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .filter-bar span {
@@ -127,6 +130,10 @@ nav {
   cursor: pointer;
   margin-left: 8px;
   font-weight: bold;
+}
+
+.search-bar button:last-child {
+  display: none;
 }
 
 .button i {
@@ -489,7 +496,7 @@ footer {
   }
 
   #img-header {
-    width: 10%;
+    width: 60px;
   }
 
   .header-right {
@@ -502,9 +509,13 @@ footer {
   }
 
   ul a {
+    width: 50%;
+  }
+
+  a li {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
   }
 
   .header-right li {
@@ -515,13 +526,83 @@ footer {
   .header-right li:hover {
     color: var(--main-color);
     border-color: var(--main-color);
-    width: 100%;
     border-top: none;
-    text-align: center;
   }
 
   .header-right:hover li:not(:hover) {
     color: black;
-    /* border-bottom: 2px solid rgba(196, 192, 192, 0.212); */
+    border-bottom: 2px solid var(--main-bg-color);
+  }
+
+  #btn-search {
+    display: none;
+  }
+
+  .search-bar button:last-child {
+    display: inline-block;
+    background: var(--main-color);
+    border: none;
+    padding: 9.5px;
+    border-radius: 10px;
+    transition: 0.2s;
+    margin-left: -10px;
+    cursor: pointer;
+  }
+
+  #btn-magnifying {
+    color: white;
+    font-size: 0.7rem;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .filter-bar button {
+    margin-bottom: 15px;
+    margin-right: 5%;
+    min-width: 30%;
+  }
+
+  .section-accomodation {
+    flex-direction: column-reverse;
+  }
+
+  .popular-main {
+    flex-direction: column;
+  }
+
+  .card-hotel2 {
+    max-width: none;
+  }
+
+  .accomodation-main {
+    flex-direction: column;
+  }
+
+  .card-hotel {
+    max-width: none;
+    width: 100%;
+  }
+
+  .activity-main {
+    flex-direction: column;
+  }
+
+  .activity-card {
+    max-width: none;
+    width: 90%;
+  }
+
+  .footer-box {
+    flex-direction: column;
+    padding-top: 0;
+  }
+
+  .footer-container h4 {
+    padding-top: 15px;
   }
 }
