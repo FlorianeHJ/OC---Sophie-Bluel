@@ -318,6 +318,7 @@ nav {
   border-radius: 10px 0px 0px 10px;
   background: url("./Images/hebergements/emile-guillemot.jpg") center/cover;
   width: 30%;
+  min-width: 91px;
   height: 113px;
 }
 
@@ -325,12 +326,14 @@ nav {
   border-radius: 10px 0px 0px 10px;
   background: url("./Images/hebergements/aw-creative.jpg") center/cover;
   width: 30%;
+  min-width: 91px;
   height: 113px;
 }
 .bg-bleublanc {
   border-radius: 10px 0px 0px 10px;
   background: url("./Images/hebergements/febrian-zakaria2.jpg") center/cover;
   width: 30%;
+  min-width: 91px;
   height: 113px;
 }
 
@@ -358,7 +361,7 @@ nav {
   display: flex;
   flex-direction: row;
   gap: 20px;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .activity-card {
@@ -443,13 +446,19 @@ footer {
   }
 
   .activity-card {
-    max-width: 18%;
+    width: 22%;
+    gap: 20px;
   }
 }
 
 /* Tablet - between 1024px & 768px */
 
 @media screen and (max-width: 1024px) {
+  .filter-bar {
+    flex-direction: column;
+    align-content: flex-start;
+  }
+
   .section-accomodation {
     flex-direction: column;
   }
@@ -559,7 +568,8 @@ footer {
   }
 
   .search-bar input {
-    min-width: 170px;
+    width: 80%;
+    max-width: none;
   }
 
   .filter-bar {
