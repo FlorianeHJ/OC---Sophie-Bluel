@@ -110,6 +110,10 @@ nav {
   box-shadow: 0px 0px 5px #484646;
 }
 
+.search-bar button:last-child {
+  display: none;
+}
+
 .filter-bar {
   margin: 20px 0px;
   display: flex;
@@ -130,10 +134,6 @@ nav {
   cursor: pointer;
   margin-left: 8px;
   font-weight: bold;
-}
-
-.search-bar button:last-child {
-  display: none;
 }
 
 .button i {
@@ -441,6 +441,10 @@ footer {
     width: 1440px;
     margin: auto;
   }
+
+  .activity-card {
+    max-width: 18%;
+  }
 }
 
 /* Tablet - between 1024px & 768px */
@@ -554,6 +558,10 @@ footer {
     font-size: 0.7rem;
   }
 
+  .search-bar input {
+    min-width: 170px;
+  }
+
   .filter-bar {
     flex-direction: column;
     flex-wrap: wrap;
@@ -563,8 +571,8 @@ footer {
 
   .filter-bar button {
     margin-bottom: 15px;
-    margin-right: 5%;
-    min-width: 30%;
+
+    width: 135px;
   }
 
   .section-accomodation {
@@ -573,28 +581,34 @@ footer {
 
   .popular-main {
     flex-direction: column;
+    align-content: center;
   }
 
   .card-hotel2 {
-    max-width: none;
+    max-width: 90%;
   }
 
   .accomodation-main {
     flex-direction: column;
+    align-content: center;
   }
 
   .card-hotel {
     max-width: none;
     width: 100%;
+    max-width: 90%;
   }
 
   .activity-main {
     flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
   }
 
   .activity-card {
     max-width: none;
     width: 90%;
+    max-width: 90%;
   }
 
   .footer-box {
