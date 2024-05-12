@@ -1,5 +1,6 @@
 // URL de l'API à partir de laquelle nous voulons récupérer les oeuvres
 const apiworkUrl = "http://localhost:5678/api/works";
+const apicategoriesUrl = "http://localhost:5678/api/categories";
 const gallery = document.querySelector(".gallery");
 
 // Récupération des oeuvres
@@ -13,9 +14,10 @@ function fetchWorks() {
       // Conversion de la réponse en format JSON
       return response.json();
     })
-    .then((data) => {
-      console.log(data);
-      data.forEach(({ title, imageUrl }) => {
+    .then((workData) => {
+      console.log(workData);
+      // Utilisation du destructuring pour les items
+      workData.forEach(({ title, imageUrl }) => {
         const figureElement = document.createElement("figure");
 
         const imageElement = document.createElement("img");
@@ -37,3 +39,10 @@ function fetchWorks() {
     });
 }
 fetchWorks();
+
+// Récupération des catégories
+fetch(apicategoriesUrl)
+  .then((res) => res.json())
+  .then((categoriesData) => console.log(categoriesData));
+
+const filterCriteria = new Set(["1", "2", "3"]);
