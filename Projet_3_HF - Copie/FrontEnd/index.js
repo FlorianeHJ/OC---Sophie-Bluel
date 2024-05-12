@@ -1,23 +1,39 @@
-const work = document.querySelector(".gallery");
+// URL de l'API à partir de laquelle nous voulons récupérer les oeuvres
+const apiworkUrl = "http://localhost:5678/api/works";
+const gallery = document.querySelector(".gallery");
 
 // Récupération des oeuvres
 function fetchWorks() {
-  fetch("http://localhost:5678/api/works")
-    .then((res) => res.json())
-    .then((data) => console.log(data));
-}
+  fetch(apiworkUrl)
+    .then((response) => {
+      // Vérification de la réponse HTTP
+      if (!response.ok) {
+        throw new Error("Erreur lors de la récupération des données");
+      }
+      // Conversion de la réponse en format JSON
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+      data.forEach(({ title, imageUrl }) => {
+        const figureElement = document.createElement("figure");
 
-for (const work of data) {
-  // Création d'un élément de paragraphe pour le titre de l'œuvre
-  const titreElement = document.createElement("p");
-  titreElement.textContent = work.title;
-  // Création d'un élément d'image pour l'URL de l'image de l'œuvre
-  const imageElement = document.createElement("img");
-  imageElement.src = work.imageUrl;
-  // Ajout du titre et de l'image à la galerie
-  galerie.appendChild(titreElement);
-  galerie.appendChild(imageElement);
-}
-});
+        const imageElement = document.createElement("img");
+        imageElement.src = imageUrl;
+        // Spécification pour texte alternatif
+        imageElement.alt = title;
 
+        const titleElement = document.createElement("h3");
+        titleElement.textContent = title;
+
+        figureElement.appendChild(imageElement);
+        figureElement.appendChild(titleElement);
+        gallery.appendChild(figureElement);
+      });
+    })
+    .catch((error) => {
+      // Gestion des erreurs
+      console.error("Erreur :", error);
+    });
+}
 fetchWorks();
