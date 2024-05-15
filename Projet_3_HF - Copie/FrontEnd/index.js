@@ -4,7 +4,7 @@ const apicategoriesUrl = "http://localhost:5678/api/categories";
 const gallery = document.querySelector(".gallery");
 
 // Récupération des oeuvres
-function fetchWork() {
+const fetchWork = () => {
   fetch(apiworkUrl)
     .then((response) => {
       // Vérification de la réponse HTTP
@@ -15,15 +15,14 @@ function fetchWork() {
       return response.json();
     })
     .then((workData) => {
-      console.log(workData).catch((error) => {
-        // Gestion des erreurs
-        console.error("Erreur :", error);
-      });
+      displayWork(workData);
+      // console
+      //   .log(workData);
     });
-}
+};
 
 // Ajout des oeuvres de manière dynamique
-function displayWork(workData) {
+const displayWork = (workData) => {
   // Utilisation du destructuring pour les items
   workData.forEach(({ title, imageUrl }) => {
     const figureElement = document.createElement("figure");
@@ -40,13 +39,12 @@ function displayWork(workData) {
     figureElement.appendChild(titleElement);
     gallery.appendChild(figureElement);
   });
-}
+};
 
 fetchWork();
-displayWork();
 
 // Récupération des catégories
-let catogoriesData = function fetchCategories() {
+const fetchCategories = () => {
   fetch(apicategoriesUrl)
     .then((response) => {
       if (!response.ok) {
@@ -59,11 +57,13 @@ let catogoriesData = function fetchCategories() {
     });
 };
 
-// Fonction pour filtrer les oeuvres par leur catégories de filtre ID
-function filterWorksByCatergories(catergoryId) {
-  return workData.filter((work) => work.catergoryId === catergoryId);
-}
 // Ajout d'un évènement au click pour filtrer la catégorie "objets"
 document.getElementById("objects").addEventListener("click", function () {
-  const filteredWorks = filterWorksByCatergories(1);
+  const filteredWorks = filterWorksByCategories(1);
 });
+
+// Fonction pour filtrer les oeuvres par leur catégories de filtre ID
+
+// function filterWorksByCategories(categoryId) {
+//   return workData.filter((work) => work.categoryId === categoryId);
+// }
