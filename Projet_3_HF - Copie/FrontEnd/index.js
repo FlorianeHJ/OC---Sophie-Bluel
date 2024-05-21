@@ -56,10 +56,17 @@ const fetchCategories = () => {
       console.error("Erreur lors de la récupération des catégories :", error);
     });
 };
+// Création du boutton de filtre Objet
+const buttons = document.querySelector(".buttons");
+
+const btnObject = document.createElement("button");
+btnObject.textContent = "Objets";
+buttons.appendChild(btnObject);
 
 // Ajout d'un évènement au click pour filtrer la catégorie "objets"
-document.getElementById("objects").addEventListener("click", function () {
-  const filteredWorks = filterWorksByCategories(1);
+
+btnObject.addEventListener("click", () => {
+  console.log(btnObject);
 });
 
 // Fonction pour filtrer les oeuvres par leur catégories de filtre ID
