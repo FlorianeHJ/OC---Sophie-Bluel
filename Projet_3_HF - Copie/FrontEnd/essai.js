@@ -1,4 +1,3 @@
-// URL de l'API à partir de laquelle nous voulons récupérer les oeuvres
 const apiworkUrl = "http://localhost:5678/api/works";
 const apicategoriesUrl = "http://localhost:5678/api/categories";
 const gallery = document.querySelector(".gallery");
@@ -16,7 +15,6 @@ const fetchWork = () => {
     })
     .then((workData) => {
       displayWork(workData);
-      return fetchCategories(workData);
       // console
       //   .log(workData);
     });
@@ -42,8 +40,10 @@ const displayWork = (workData) => {
   });
 };
 
+fetchWork();
+
 // Récupération des catégories
-const fetchCategories = (workData) => {
+const fetchCategories = () => {
   fetch(apicategoriesUrl)
     .then((response) => {
       if (!response.ok) {
@@ -52,12 +52,11 @@ const fetchCategories = (workData) => {
       return response.json();
     })
     .then((categoriesData) => {
-      filterByCategories(categoriesData, workData);
+      filterByCategories(categoriesData);
       console.log(categoriesData);
     });
 };
 
-fetchWork();
 fetchCategories();
 
 // Création des boutons de filtres
@@ -78,7 +77,7 @@ buttons.appendChild(btnHandR);
 // Fonction pour filtrer les oeuvres par leur catégories de filtre ID
 
 const filterByCategories = (categoriesData) => {
-  return workData.filter((workData) => workData.categoryId === categoryId);
+  return workData.filter((work) => work.categoryId === categoryId);
 };
 
 // Ajout d'un évènement au click pour filtrer la catégorie "objets"
