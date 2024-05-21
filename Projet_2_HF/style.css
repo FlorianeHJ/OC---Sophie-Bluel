@@ -1,3 +1,5 @@
+/* ******* SETTINGS ******** */
+
 :root {
   --main-color: #0065fc;
   --main-bg-color: #f2f2f2;
@@ -24,7 +26,7 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
-/* HEADER */
+/****** HEADER ******/
 
 nav {
   display: flex;
@@ -43,7 +45,7 @@ nav {
   flex-direction: row;
 }
 
-.header-right ul li {
+.header-right ul a {
   padding: 15px;
   display: flex;
   cursor: pointer;
@@ -51,19 +53,19 @@ nav {
   border-top: 2px solid transparent;
 }
 
-.header-right li:hover {
+.header-right a:hover {
   color: var(--main-color);
   border-color: var(--main-color);
 }
 
-.header-right:hover li:not(:hover) {
+.header-right:hover a:not(:hover) {
   color: black;
   border: none;
 }
 
-/* MAIN */
+/****** MAIN *******/
 
-/* Section-info */
+/** Section-info **/
 
 .headline {
   margin: 15px 0px;
@@ -168,7 +170,7 @@ nav {
   font-size: 0.8rem;
 }
 
-/* section-accomodation */
+/** section-accomodation **/
 
 .section-accomodation {
   display: flex;
@@ -216,46 +218,34 @@ nav {
   padding: 3px;
 }
 
-.bg-hotelport {
-  border-radius: 10px 10px 0px 0px;
-  width: 100%;
-  height: 124px;
-  min-width: 124px;
-  background: url("./Images/hebergements/fred-kleber.jpg") center/cover;
-}
-.bg-hotelamina {
-  border-radius: 10px 10px 0px 0px;
-  width: 100%;
-  height: 124px;
-  min-width: 124px;
-  background: url("./Images/hebergements/febrian-zakaria.jpg") center/cover;
-}
-.bg-hotellesmouettes {
-  border-radius: 10px 10px 0px 0px;
-  width: 100%;
-  height: 124px;
-  min-width: 124px;
-  background: url("./Images/hebergements/reisetopia.jpg") center/cover;
-}
-.bg-hoteldelamer {
-  border-radius: 10px 10px 0px 0px;
-  width: 100%;
-  height: 124px;
-  min-width: 124px;
-  background: url("./Images/hebergements/annie-spratt.jpg") center/cover;
-}
-.bg-aubergecanebiere {
-  border-radius: 10px 10px 0px 0px;
-  width: 100%;
-  height: 124px;
-  min-width: 124px;
-  background: url("./Images/hebergements/marcus-loke.jpg") center/cover;
-}
+.bg-hotelport,
+.bg-hotelamina,
+.bg-hotellesmouettes,
+.bg-hoteldelamer,
+.bg-aubergecanebiere,
 .bg-aubergelepanier {
   border-radius: 10px 10px 0px 0px;
   width: 100%;
   height: 124px;
   min-width: 124px;
+}
+
+.bg-hotelport {
+  background: url("./Images/hebergements/fred-kleber.jpg") center/cover;
+}
+.bg-hotelamina {
+  background: url("./Images/hebergements/febrian-zakaria.jpg") center/cover;
+}
+.bg-hotellesmouettes {
+  background: url("./Images/hebergements/reisetopia.jpg") center/cover;
+}
+.bg-hoteldelamer {
+  background: url("./Images/hebergements/annie-spratt.jpg") center/cover;
+}
+.bg-aubergecanebiere {
+  background: url("./Images/hebergements/marcus-loke.jpg") center/cover;
+}
+.bg-aubergelepanier {
   background: url("./Images/hebergements/nicate-lee.jpg") center/cover;
 }
 
@@ -320,27 +310,25 @@ nav {
   padding: 3px;
   height: 100%;
 }
-.bg-hotelsoleilmatin {
+.bg-hotelsoleilmatin,
+.bg-coeureau,
+.bg-bleublanc {
   border-radius: 10px 0px 0px 10px;
-  background: url("./Images/hebergements/emile-guillemot.jpg") center/cover;
   width: 30%;
   height: 146px;
   min-width: 91px;
 }
 
-.bg-coeureau {
-  border-radius: 10px 0px 0px 10px;
-  background: url("./Images/hebergements/aw-creative.jpg") center/cover;
-  width: 30%;
-  height: 146px;
-  min-width: 91px;
+.bg-hotelsoleilmatin {
+  background: url("./Images/hebergements/emile-guillemot.jpg") center/cover;
 }
+
+.bg-coeureau {
+  background: url("./Images/hebergements/aw-creative.jpg") center/cover;
+}
+
 .bg-bleublanc {
-  border-radius: 10px 0px 0px 10px;
   background: url("./Images/hebergements/febrian-zakaria2.jpg") center/cover;
-  width: 30%;
-  height: 146px;
-  min-width: 91px;
 }
 
 .container-right {
@@ -380,29 +368,26 @@ nav {
   cursor: pointer;
 }
 
-.bg-vieuxport {
-  background: url("./Images/activites/reno-laithienne.jpg") center/cover;
+.bg-vieuxport,
+.bg-fortpomegues,
+.bg-calanques,
+.bg-notredame {
   border-radius: 10px 10px 0px 0px;
   width: 100%;
   height: 380px;
 }
+.bg-vieuxport {
+  background: url("./Images/activites/reno-laithienne.jpg") center/cover;
+}
+
 .bg-fortpomegues {
   background: url("./Images/activites/paul-hermann.jpg") center/cover;
-  border-radius: 10px 10px 0px 0px;
-  width: 100%;
-  height: 380px;
 }
 .bg-calanques {
   background: url("./Images/activites/kilyan-sockalingum.jpg") center/cover;
-  border-radius: 10px 10px 0px 0px;
-  width: 100%;
-  height: 380px;
 }
 .bg-notredame {
   background: url("./Images/activites/florian-wehde.jpg") center/cover;
-  border-radius: 10px 10px 0px 0px;
-  width: 100%;
-  height: 380px;
 }
 
 .activity-card h4 {
@@ -430,7 +415,7 @@ footer {
 }
 
 .footer-container {
-  margin-right: 260px;
+  margin-right: 20%;
 }
 
 .footer-container h4 {
@@ -443,13 +428,13 @@ footer {
   font-size: 0.8rem;
 }
 
-/* MEDIA QUERIES  */
+/******** MEDIA QUERIES  **********/
 
-/* Large Desktop - starts at 1440px */
+/** Large Desktop - starts at 1440px **/
 
 @media screen and (min-width: 1440px) {
   body {
-    width: 1440px;
+    max-width: 1420px;
     margin: auto;
   }
 
@@ -459,7 +444,7 @@ footer {
   }
 }
 
-/* Tablet - between 1024px & 768px */
+/** Tablet - between 1024px & 768px **/
 
 @media screen and (max-width: 1024px) {
   .filter-bar {
@@ -499,7 +484,7 @@ footer {
   }
 }
 
-/* Mobile Phone - less than 768px */
+/** Mobile Phone - less than 768px **/
 
 @media screen and (max-width: 768px) {
   body {
@@ -677,6 +662,8 @@ footer {
     padding-top: 15px;
   }
 }
+
+/* ** Amélioration des boutons filtres ** */
 
 @media screen and (max-width: 350px) {
   .filter-bar button {
