@@ -3,26 +3,47 @@ const apiworkUrl = "http://localhost:5678/api/works";
 const apicategoriesUrl = "http://localhost:5678/api/categories";
 const gallery = document.querySelector(".gallery");
 const buttonsContainer = document.querySelector(".buttons");
+let allWork = [];
 
 // Récupération des oeuvres
 const fetchWork = () => {
-  fetch(apiworkUrl).then((response) => {
-    if (!response.ok) {
-      throw new Error("Erreur lors de la récupération des données");
-    }
-    return response.json();
-  });
+  fetch(apiworkUrl)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Erreur lors de la récupération des données");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      allWork = data;
+
+      displayWork(allWork);
+
+      // Ajout d'un bouton pour afficher toutes les oeuvres
+      const allButton = document.createElement("button");
+      allButton.textContent = "Tout";
+      allButton.addEventListener("click", () => displayWork(allWork));
+      buttonsContainer.appendChild(allButton);
+    });
 };
+
+fetchWork();
 
 // Récupération des catégories
 const fetchCategories = () => {
-  fetch(apicategoriesUrl).then((response) => {
-    if (!response.ok) {
-      throw new Error("Erreur lors de la récupération des catégories");
-    }
-    return response.json();
-  });
+  fetch(apicategoriesUrl)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Erreur lors de la récupération des catégories");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      createFilterButtons(data);
+    });
 };
+
+fetchCategories();
 
 // Ajout des oeuvres de manière dynamique
 const displayWork = (workData) => {
@@ -45,30 +66,18 @@ const displayWork = (workData) => {
 };
 
 // Création des boutons de filtres
-const createFilterButtons = (categoriesData, workData) => {
+const createFilterButtons = (categoriesData) => {
   categoriesData.forEach(({ id, name }) => {
     const button = document.createElement("button");
     button.textContent = name;
     button.addEventListener("click", () => {
-      const filteredWorks = workData.filter((work) => work.categoryId === id);
-      displayWork(filteredWorks);
+      filterByCategories(id);
     });
     buttonsContainer.appendChild(button);
   });
-
-  // Ajout d'un bouton pour afficher toutes les oeuvres
-  const allButton = document.createElement("button");
-  allButton.textContent = "Tout";
-  allButton.addEventListener("click", () => displayWork(workData));
-  buttonsContainer.appendChild(allButton);
 };
 
-// Promise all
-Promise.all([fetchWork(), fetchCategories()])
-  .then(([workData, categoriesData]) => {
-    displayWork(workData);
-    createFilterButtons(categoriesData, workData);
-  })
-  .catch((error) => {
-    console.error("Erreur:", error);
-  });
+const filterByCategories = (categoryId) => {
+  const workFiltered = allWork.filter((work) => work.categoryId === categoryId);
+  displayWork(workFiltered);
+};
