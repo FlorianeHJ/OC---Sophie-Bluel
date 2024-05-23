@@ -1,3 +1,7 @@
+/********************
+ *** LANDING PAGE ***
+ ********************/
+
 // URL de l'API à partir de laquelle nous voulons récupérer les oeuvres
 const apiworkUrl = "http://localhost:5678/api/works";
 const apicategoriesUrl = "http://localhost:5678/api/categories";
@@ -16,12 +20,11 @@ const fetchWork = () => {
     })
     .then((data) => {
       allWork = data;
-
       displayWork(allWork);
 
       // Ajout d'un bouton pour afficher toutes les oeuvres
       const allButton = document.createElement("button");
-      allButton.textContent = "Tout";
+      allButton.textContent = "Tous";
       allButton.addEventListener("click", () => displayWork(allWork));
       buttonsContainer.appendChild(allButton);
     });
@@ -81,3 +84,7 @@ const filterByCategories = (categoryId) => {
   const workFiltered = allWork.filter((work) => work.categoryId === categoryId);
   displayWork(workFiltered);
 };
+
+/********************
+ **** LOGIN PAGE ****
+ ********************/
