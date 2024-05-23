@@ -84,7 +84,3 @@ const filterByCategories = (categoryId) => {
   const workFiltered = allWork.filter((work) => work.categoryId === categoryId);
   displayWork(workFiltered);
 };
-
-/********************
- **** LOGIN PAGE ****
- ********************/
