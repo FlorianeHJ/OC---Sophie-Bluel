@@ -514,22 +514,22 @@ footer {
     padding: 0;
   }
 
-  ul a {
+  ul li {
     width: 50%;
   }
 
-  a li {
+  li a {
     width: 100%;
     display: flex;
     justify-content: center;
   }
 
-  .header-right li {
+  .header-right a {
     border-bottom: 2px solid var(--main-bg-color);
     border-top: none !important;
   }
 
-  .header-right li:hover {
+  .header-right a:hover {
     color: var(--main-color);
     border-color: var(--main-color);
     border-top: none;
