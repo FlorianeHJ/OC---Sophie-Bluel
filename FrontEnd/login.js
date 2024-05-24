@@ -19,3 +19,15 @@ form.addEventListener("submit", (e) => {
     msgerror.style.display = "none";
   }
 });
+
+const requestOptions = {
+  method: "POST",
+  headers: { "Content-type": "application/json" },
+  body: JSON.stringify,
+};
+
+fetch(loginApi, requestOptions).then((response) => {
+  return response.json;
+});
+
+console.log(response.json);
