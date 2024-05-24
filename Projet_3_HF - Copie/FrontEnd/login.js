@@ -2,12 +2,7 @@
  **** LOGIN PAGE ****
  ********************/
 
-const inputs = document.querySelectorAll(
-  'input[type="text"], input[type="password"]'
-);
-
-inputs.forEach((input) => {
-  input.addEventListener("input", (e) => {
-    console.log(e.target.id);
-  });
-});
+let email = document.getElementById("email");
+let password = document.getElementById("password");
+let form = document.getElementById("form");
+const loginApi = "http://localhost:5678/api/users/login";
