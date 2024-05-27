@@ -21,7 +21,10 @@ form.addEventListener("submit", (e) => {
 
   const requestOptions = {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+      Accepte: "application/json",
+    },
     body: JSON.stringify({ email: emailValue, password: passwordValue }),
   };
 
@@ -29,7 +32,7 @@ form.addEventListener("submit", (e) => {
     .then((response) => response.json())
     .then((loginData) => {
       if (loginData.token) {
-        window.location.href = "login.html";
+        window.location.href = "index.html";
       } else {
         msgerror2.style.display = "flex";
       }
