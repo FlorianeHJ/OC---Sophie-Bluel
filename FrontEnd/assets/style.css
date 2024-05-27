@@ -357,6 +357,10 @@ footer nav ul {
   text-decoration: underline;
 }
 
-form span {
+#msgerror {
+  display: none;
+}
+
+#msgerror2 {
   display: none;
 }

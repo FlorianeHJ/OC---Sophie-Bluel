@@ -10,24 +10,28 @@ const loginApi = "http://localhost:5678/api/users/login";
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const emailvalue = inputEmail.value.trim();
-  const passwordvalue = inputPassword.value.trim();
+  const emailValue = inputEmail.value.trim();
+  const passwordValue = inputPassword.value.trim();
 
-  if (emailvalue === "" || passwordvalue === "") {
+  if (emailValue === "" || passwordValue === "") {
     msgerror.style.display = "flex";
   } else {
     msgerror.style.display = "none";
   }
+
+  const requestOptions = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email: emailValue, password: passwordValue }),
+  };
+
+  fetch(loginApi, requestOptions)
+    .then((response) => response.json())
+    .then((loginData) => {
+      if (loginData.token) {
+        window.location.href = "login.html";
+      } else {
+        msgerror2.style.display = "flex";
+      }
+    });
 });
-
-const requestOptions = {
-  method: "POST",
-  headers: { "Content-type": "application/json" },
-  body: JSON.stringify,
-};
-
-fetch(loginApi, requestOptions).then((response) => {
-  return response.json;
-});
-
-console.log(response.json);
