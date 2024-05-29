@@ -86,3 +86,5 @@ const filterByCategories = (categoryId) => {
   const workFiltered = allWork.filter((work) => work.categoryId === categoryId);
   displayWork(workFiltered);
 };
+
+console.log(localStorage.getItem("token"));

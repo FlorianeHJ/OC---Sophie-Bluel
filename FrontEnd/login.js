@@ -32,6 +32,7 @@ form.addEventListener("submit", (e) => {
     .then((response) => response.json())
     .then((loginData) => {
       if (loginData.token) {
+        localStorage.setItem("token", loginData.token);
         window.location.href = "index.html";
       } else {
         msgerror2.style.display = "flex";
