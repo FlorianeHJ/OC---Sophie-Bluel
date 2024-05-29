@@ -283,23 +283,18 @@ input[type="submit"] {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 15px;
 }
-
-/* .filter-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
 
 button {
   font-family: "Syne";
   font-weight: 700;
   color: #1d6154;
   border: 1px solid #1d6154;
-  margin: 2em auto;
+  margin: 20px 0 40px 0;
   background: none;
   text-align: center;
-  font-size: 15px;
+  font-size: 12px;
   padding: 7px 18px 7px 18px;
   border-radius: 60px;
   cursor: pointer;
@@ -353,6 +348,16 @@ footer nav ul {
   font-size: 1.2em;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+.password-container {
+  max-width: 378px;
+  width: 100%;
+}
+
+.email-container {
+  max-width: 378px;
+  width: 100%;
 }
 
 #login label {
