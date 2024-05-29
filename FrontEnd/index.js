@@ -73,6 +73,8 @@ const createFilterButtons = (categoriesData) => {
   categoriesData.forEach(({ id, name }) => {
     const button = document.createElement("button");
     button.textContent = name;
+    button.classList.add("filter-button");
+
     button.addEventListener("click", () => {
       filterByCategories(id);
     });

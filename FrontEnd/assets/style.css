@@ -133,6 +133,10 @@ table {
   text-decoration: none;
 }
 
+a:visited {
+  color: inherit;
+}
+
 body {
   max-width: 1140px;
   margin: auto;
@@ -277,7 +281,15 @@ input[type="submit"] {
 
 .buttons {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+/* .filter-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
 
 button {
   font-family: "Syne";
@@ -298,7 +310,7 @@ button:first-child {
   color: white;
 }
 
-button:not(hover) {
+button:not(:hover) {
   background: none;
   color: #1d6154;
 }
@@ -317,9 +329,8 @@ footer nav ul {
  **** LOGIN PAGE ****
  ********************/
 
-#login {
-  width: 50%;
-  margin: auto;
+#form {
+  align-items: center;
 }
 
 #login > * {
