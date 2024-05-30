@@ -147,8 +147,14 @@ body {
 header {
   display: flex;
   justify-content: space-between;
-  margin: 50px 0;
+  flex-direction: column;
 }
+.navbar {
+  display: flex;
+  font-display: row;
+  justify-content: space-between;
+}
+
 section {
   margin: 50px 0;
 }
@@ -379,4 +385,20 @@ footer nav ul {
 
 #msgerror2 {
   display: none;
+}
+
+/********************
+ **** ADMIN PART ****
+ ********************/
+
+.editionmode {
+  height: 59px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
+  color: white;
+  margin: 0 30px;
+  max-width: none;
 }
