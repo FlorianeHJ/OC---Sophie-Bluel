@@ -393,12 +393,11 @@ footer nav ul {
 
 .editionmode {
   height: 59px;
-
   display: flex;
   align-items: center;
   justify-content: center;
   background: black;
   color: white;
-  margin: 0 30px;
-  max-width: none;
+  margin: 0;
+  max-width: 100%;
 }
