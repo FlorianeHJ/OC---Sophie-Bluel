@@ -10,5 +10,4 @@ if (localStorage.getItem("token")) {
 
 logout.addEventListener("click", (e) => {
   localStorage.removeItem("token");
-  window.location.href = "index.html";
 });

@@ -62,15 +62,31 @@
           </p>
         </article>
       </section>
+
       <section id="portfolio">
         <div class="editproject">
           <h2>Mes Projets</h2>
-          <a href="#"
+          <a href="modal"
             ><div class="edit">
               <span><i class="fa-solid fa-pen-to-square"></i> modifier</span>
             </div></a
           >
         </div>
+
+        <aside
+          id="modal"
+          class="modal"
+          aria-hidden="true"
+          role="dialog"
+          aria-modal="false"
+          aria-labelledby="titlemodal"
+        >
+          <div class="modal-wrapper">
+            <h2 id="titlemodal">Galerie photo</h2>
+            <div class="displayphoto"></div>
+            <button>Ajouter une photo</button>
+          </div>
+        </aside>
 
         <div class="buttons"></div>
 
