@@ -67,27 +67,11 @@
         <div class="editproject">
           <h2>Mes Projets</h2>
           <a href="#modal" class="js-modal"
-            ><div class="edit">
+            ><div class="editBtn">
               <span><i class="fa-solid fa-pen-to-square"></i> modifier</span>
             </div></a
           >
         </div>
-
-        <aside
-          id="modal1"
-          class="modal"
-          aria-hidden="true"
-          role="dialog"
-          aria-modal="false"
-          aria-labelledby="titlemodal"
-        >
-          <div class="modal-wrapper">
-            <button class="js-modal-close">Fermer la boite modale</button>
-            <h2 id="titlemodal">Galerie photo</h2>
-            <div class="displayphoto"></div>
-            <button>Ajouter une photo</button>
-          </div>
-        </aside>
 
         <div class="buttons"></div>
 
@@ -115,6 +99,18 @@
         </ul>
       </nav>
     </footer>
+
+    <!-- ************ MODAL ************* -->
+
+    <aside class="modal" role="dialog">
+      <div class="modal-container">
+        <button class="modalCloseBtn"><i class="fa-solid fa-xmark"></i></button>
+        <h2 id="titlemodal">Galerie photo</h2>
+        <div class="displayphoto"></div>
+        <button>Ajouter une photo</button>
+      </div>
+    </aside>
+
     <script src="./index.js"></script>
     <script src="./admin.js"></script>
     <script src="./modal.js"></script>
