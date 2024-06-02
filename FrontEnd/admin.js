@@ -1,8 +1,8 @@
 const editionmode = document.querySelector(".editionmode");
-const edit = document.querySelector(".edit");
+const editBtn = document.querySelector(".editBtn");
 
 if (localStorage.getItem("token")) {
-  edit.style.display = "flex";
+  editBtn.style.display = "flex";
   editionmode.style.display = "flex";
   logout.style.display = "flex";
   login.style.display = "none";

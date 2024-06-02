@@ -49,22 +49,31 @@ const fetchCategories = () => {
 fetchCategories();
 
 // Ajout des oeuvres de manière dynamique
-const displayWork = (workData) => {
-  gallery.innerHTML = ""; // Clear previous work
+const displayWork = (workData, isModal = false) => {
+  const container = isModal ? displayPhoto : gallery;
+  container.innerHTML = ""; // Clear previous work
 
-  workData.forEach(({ title, imageUrl }) => {
-    const figureElement = document.createElement("figure");
+  workData.forEach(({ imageUrl, title }) => {
+    const element = isModal
+      ? document.createElement("img")
+      : document.createElement("figure");
 
-    const imageElement = document.createElement("img");
-    imageElement.src = imageUrl;
-    imageElement.alt = title;
+    if (isModal) {
+      element.src = imageUrl;
+      element.alt = title;
+    } else {
+      const imageElement = document.createElement("img");
+      imageElement.src = imageUrl;
+      imageElement.alt = title;
 
-    const titleElement = document.createElement("h3");
-    titleElement.textContent = title;
+      const titleElement = document.createElement("h3");
+      titleElement.textContent = title;
 
-    figureElement.appendChild(imageElement);
-    figureElement.appendChild(titleElement);
-    gallery.appendChild(figureElement);
+      element.appendChild(imageElement);
+      element.appendChild(titleElement);
+    }
+
+    container.appendChild(element);
   });
 };
 
@@ -87,4 +96,4 @@ const filterByCategories = (categoryId) => {
   displayWork(workFiltered);
 };
 
-console.log(localStorage.getItem("token"));
+// console.log(localStorage.getItem("token"));
