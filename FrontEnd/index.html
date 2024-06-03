@@ -105,7 +105,7 @@
     <aside class="modal" role="dialog">
       <div class="modal1">
         <div class="modal-container">
-          <button class="modalCloseBtn">
+          <button id="modalCloseBtn" class="modalCloseBtn">
             <i class="fa-solid fa-xmark"></i>
           </button>
           <h2 id="titlemodal">Galerie photo</h2>
@@ -113,6 +113,7 @@
           <button id="btnAddWork">Ajouter une photo</button>
         </div>
       </div>
+
       <div class="modal2">
         <div class="modal-container">
           <button class="modalCloseBtn">
@@ -121,6 +122,22 @@
           <button class="modalCloseArrow">
             <i class="fa-solid fa-arrow-left"></i>
           </button>
+          <h2 id="titlemodal">Ajout photo</h2>
+          <form action="">
+            <button>
+              <input type="file" />
+              <p>+ Ajouter une photo</p>
+            </button>
+            <label for="titre">Titre</label>
+            <input type="text" name="Titre" id="titre" />
+            <label for="categorie">Catégorie</label>
+            <select name="categorie" id="categorie">
+              <option value="hotel&restaurant">Hotels & Restaurants</option>
+              <option value="objets">Objets</option>
+              <option value="appartements">Appartements</option>
+            </select>
+            <input type="submit" />
+          </form>
         </div>
       </div>
     </aside>

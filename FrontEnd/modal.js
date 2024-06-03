@@ -4,6 +4,7 @@ const modal2 = document.querySelector(".modal2");
 const modalCloseBtn = document.getElementsByClassName("modalCloseBtn");
 const modalCloseArrow = document.querySelector(".modalCloseArrow");
 const displayPhoto = document.querySelector(".displayPhoto");
+const urlDeleteWorks = "http://localhost:5678/api/works/{id}";
 
 editBtn.addEventListener("click", () => {
   modal.style.display = "flex";
@@ -32,6 +33,8 @@ btnAddWork.addEventListener("click", () => {
   modal1.style.display = "none";
   modal2.style.display = "flex";
 });
+
+// Affichage dynamique des oeuvres - modal 1
 
 const fetchWorkModal = () => {
   fetch("http://localhost:5678/api/works")
@@ -73,4 +76,28 @@ const displayWorkModal = (workModal) => {
     imgContainer.appendChild(imgWrapper);
     displayPhoto.appendChild(imgContainer);
   });
+};
+
+// suppression des oeuvres - modal 1
+
+const requestOptionsDelete = {
+  method: "DELETE",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: "Bearer " + token,
+  },
+};
+
+const deleteWork = (id) => {
+  fetch(urlDeleteWorks + id, requestOptionsDelete)
+    .then((response) => {
+      if (localStorage.getItem("token")) {
+        imgContainer.remove();
+      } else {
+        console.log("Erreur lors de la suppression de l'oeuvre");
+      }
+    })
+    .catch((error) => {
+      console.error("Erreur lors de la suppresion de l'oeuvre :", error);
+    });
 };

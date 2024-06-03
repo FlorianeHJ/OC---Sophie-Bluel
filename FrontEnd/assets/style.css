@@ -472,9 +472,8 @@ footer nav ul {
 
 .modalCloseBtn {
   border: none;
-
-  padding: none;
-  margin: none;
+  padding: 0;
+  margin: 0;
 }
 
 .modalCloseBtn i {
@@ -483,13 +482,17 @@ footer nav ul {
   font-size: 20px;
 }
 
+.modalCloseBtn:hover {
+  background: none;
+}
+
 .displayPhoto {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 30px;
+  padding: 0 30px 0 30px;
 }
 
 .img-wrapper {
@@ -509,16 +512,23 @@ footer nav ul {
   border-radius: 3px;
 }
 
-.displayPhoto button {
+#btnAddWork {
   background-color: #1d6154;
   color: white;
   font-weight: lighter;
-  padding: 10px 55px 10px 55px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  padding: 8px 50px 8px 50px;
+  font-size: 12px;
+  margin: 0;
+  position: relative;
 }
 
-.displayPhoto button:hover {
-  background: none;
+#btnAddWork:before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  background-color: rgba(128, 128, 128, 0.445);
+  height: 1.5px;
+  top: -10px;
+  right: 0;
+  transform: translateX(20%);
 }
