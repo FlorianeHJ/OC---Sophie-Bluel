@@ -453,7 +453,7 @@ footer nav ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+
   width: 600px;
   max-width: calc(100vh - 20px);
   max-height: calc(100vh - 20px);
@@ -463,17 +463,21 @@ footer nav ul {
 }
 
 .modal-container h2 {
-  padding-bottom: 13px;
+  padding-bottom: 30px;
   font-size: 23px;
   font-family: "Work Sans";
   color: black;
   font-weight: 500;
+  display: flex;
+  justify-content: center;
 }
 
 .modalCloseBtn {
+  display: flex;
   border: none;
   padding: 0;
   margin: 0;
+  justify-content: flex-end;
 }
 
 .modalCloseBtn i {
@@ -501,8 +505,8 @@ footer nav ul {
 
 .delete-icon {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 6px;
+  right: 8px;
 
   font-size: 8px;
   cursor: pointer;
@@ -512,23 +516,30 @@ footer nav ul {
   border-radius: 3px;
 }
 
+.addWork {
+  display: flex;
+  justify-content: center;
+}
+
 #btnAddWork {
   background-color: #1d6154;
   color: white;
   font-weight: lighter;
-  padding: 8px 50px 8px 50px;
+
   font-size: 12px;
   margin: 0;
   position: relative;
+  margin-top: 55px;
+  width: 40%;
 }
 
 #btnAddWork:before {
   content: "";
   position: absolute;
-  width: 150%;
+  width: 200%;
   background-color: rgba(128, 128, 128, 0.445);
-  height: 1.5px;
-  top: -10px;
+  height: 1px;
+  top: -29px;
   right: 0;
-  transform: translateX(20%);
+  transform: translateX(25%);
 }
