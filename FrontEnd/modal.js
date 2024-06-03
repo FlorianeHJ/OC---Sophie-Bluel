@@ -4,7 +4,7 @@ const modal2 = document.querySelector(".modal2");
 const modalCloseBtn = document.getElementsByClassName("modalCloseBtn");
 const modalCloseArrow = document.querySelector(".modalCloseArrow");
 const displayPhoto = document.querySelector(".displayPhoto");
-const urlDeleteWorks = "http://localhost:5678/api/works/{id}";
+const urlDeleteWorks = "http://localhost:5678/api/works/";
 
 editBtn.addEventListener("click", () => {
   modal.style.display = "flex";
@@ -56,6 +56,7 @@ const displayWorkModal = (workModal) => {
   workModal.forEach(({ title, imageUrl, id }) => {
     const imgContainer = document.createElement("div");
     imgContainer.classList.add("img-container");
+    imgContainer.id = `img-container-${id}`;
 
     const imgWrapper = document.createElement("div");
     imgWrapper.classList.add("img-wrapper");
@@ -70,7 +71,9 @@ const displayWorkModal = (workModal) => {
 
     const deleteIcon = document.createElement("i");
     deleteIcon.classList.add("fa-solid", "fa-trash-can", "delete-icon");
-    deleteIcon.addEventListener("click", () => deleteWork(id));
+    deleteIcon.addEventListener("click", () => {
+      deleteWork(id);
+    });
     imgWrapper.appendChild(deleteIcon);
 
     imgContainer.appendChild(imgWrapper);
@@ -79,20 +82,25 @@ const displayWorkModal = (workModal) => {
 };
 
 // suppression des oeuvres - modal 1
-
-const requestOptionsDelete = {
-  method: "DELETE",
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: "Bearer " + token,
-  },
-};
+const token = localStorage.getItem("token");
 
 const deleteWork = (id) => {
+  const requestOptionsDelete = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
+    },
+  };
+
   fetch(urlDeleteWorks + id, requestOptionsDelete)
     .then((response) => {
-      if (localStorage.getItem("token")) {
-        imgContainer.remove();
+      if (response.ok) {
+        const imgContainer = document.getElementById(`img-container-${id}`);
+
+        if (imgContainer) {
+          imgContainer.remove();
+        }
       } else {
         console.log("Erreur lors de la suppression de l'oeuvre");
       }
