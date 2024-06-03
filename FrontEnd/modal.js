@@ -63,7 +63,7 @@ const displayWorkModal = (workModal) => {
     imgWrapper.appendChild(imgModal);
 
     imgModal.style.width = "80px";
-    imgModal.style.padding = "5px";
+    imgModal.style.padding = "0px 2px 20px 2px";
 
     const deleteIcon = document.createElement("i");
     deleteIcon.classList.add("fa-solid", "fa-trash-can", "delete-icon");

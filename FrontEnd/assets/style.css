@@ -459,21 +459,28 @@ footer nav ul {
   max-height: calc(100vh - 20px);
   padding: 50px;
   background-color: white;
+  border-radius: 5px;
 }
 
 .modal-container h2 {
-  padding-bottom: 50px;
-  font-size: 25px;
+  padding-bottom: 13px;
+  font-size: 23px;
   font-family: "Work Sans";
   color: black;
-  font-weight: normal;
+  font-weight: 500;
 }
 
 .modalCloseBtn {
   border: none;
-  color: black;
+
   padding: none;
   margin: none;
+}
+
+.modalCloseBtn i {
+  font-weight: bolder;
+  color: black;
+  font-size: 20px;
 }
 
 .displayPhoto {
@@ -492,7 +499,26 @@ footer nav ul {
 .delete-icon {
   position: absolute;
   top: 10px;
-  right: 2px;
-  width: 20px;
+  right: 10px;
+
+  font-size: 8px;
   cursor: pointer;
+  background: black;
+  color: white;
+  padding: 4px;
+  border-radius: 3px;
+}
+
+.displayPhoto button {
+  background-color: #1d6154;
+  color: white;
+  font-weight: lighter;
+  padding: 10px 55px 10px 55px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.displayPhoto button:hover {
+  background: none;
 }
