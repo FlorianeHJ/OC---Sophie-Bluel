@@ -450,9 +450,49 @@ footer nav ul {
 }
 
 .modal-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 600px;
   max-width: calc(100vh - 20px);
   max-height: calc(100vh - 20px);
-  padding: 20px;
+  padding: 50px;
   background-color: white;
+}
+
+.modal-container h2 {
+  padding-bottom: 50px;
+  font-size: 25px;
+  font-family: "Work Sans";
+  color: black;
+  font-weight: normal;
+}
+
+.modalCloseBtn {
+  border: none;
+  color: black;
+  padding: none;
+  margin: none;
+}
+
+.displayPhoto {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+}
+
+.img-wrapper {
+  position: relative;
+}
+
+.delete-icon {
+  position: absolute;
+  top: 10px;
+  right: 2px;
+  width: 20px;
+  cursor: pointer;
 }

@@ -50,13 +50,27 @@ fetchWorkModal();
 const displayWorkModal = (workModal) => {
   displayPhoto.innerHTML = "";
 
-  workModal.forEach(({ title, imageUrl }) => {
+  workModal.forEach(({ title, imageUrl, id }) => {
+    const imgContainer = document.createElement("div");
+    imgContainer.classList.add("img-container");
+
+    const imgWrapper = document.createElement("div");
+    imgWrapper.classList.add("img-wrapper");
+
     const imgModal = document.createElement("img");
     imgModal.src = imageUrl;
     imgModal.alt = title;
-    displayPhoto.appendChild(imgModal);
+    imgWrapper.appendChild(imgModal);
 
-    imgModal.style.width = "70px";
+    imgModal.style.width = "80px";
     imgModal.style.padding = "5px";
+
+    const deleteIcon = document.createElement("i");
+    deleteIcon.classList.add("fa-solid", "fa-trash-can", "delete-icon");
+    deleteIcon.addEventListener("click", () => deleteWork(id));
+    imgWrapper.appendChild(deleteIcon);
+
+    imgContainer.appendChild(imgWrapper);
+    displayPhoto.appendChild(imgContainer);
   });
 };
