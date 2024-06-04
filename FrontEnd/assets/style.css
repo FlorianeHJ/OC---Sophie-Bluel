@@ -575,10 +575,13 @@ footer nav ul {
 .formModal button {
   margin: 0;
   padding: 0;
+  border: none;
+  background: #e8f1f6;
+  color: #306685;
 }
 
-.formModal button:hover {
-  background: none;
+.formModal input[type="file"] {
+  z-index: 1;
 }
 
 .formModal input {
@@ -592,15 +595,7 @@ footer nav ul {
   margin: 2em 0 1em 0;
 }
 
-.formModal p {
-  text-decoration: underline;
-}
-
 .btnAddFile input {
-  z-index: 1;
-}
-
-.btnAddFile p {
   z-index: 0;
 }
 
