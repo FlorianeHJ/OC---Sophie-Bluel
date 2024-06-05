@@ -109,3 +109,31 @@ const deleteWork = (id) => {
       console.error("Erreur lors de la suppresion de l'oeuvre :", error);
     });
 };
+
+// Ajout des oeuvres - modal 2
+
+// Afficher l'oeuvre choisie dans la modal 2
+
+function previewImage(e) {
+  const inputFileImg = e.target;
+  const imgPreview = document.getElementById("imgPreview");
+
+  if (inputFileImg.files && inputFileImg.files[0]) {
+    const reader = new FileReader();
+    reader.onload = function (event) {
+      imgPreview.src = event.target.result;
+      imgPreview.style.display = "block";
+    };
+    reader.readAsDataURL(inputFileImg.files[0]);
+
+    const fileIcon = document.querySelector(".fileIcon");
+    const btnAddFile = document.querySelector(".btnAddFile");
+    fileIcon.style.display = "none";
+    addPhotos.style.display = "none";
+    sizeRequired.style.display = "none";
+    imgPreview.style.maxWidth = "30%";
+    btnAddFile.style.padding = "0";
+  }
+}
+
+document.getElementById("inputFile").addEventListener("change", previewImage);
