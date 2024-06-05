@@ -48,8 +48,6 @@ const fetchWorkModal = () => {
     });
 };
 
-fetchWorkModal();
-
 const displayWorkModal = (workModal) => {
   displayPhoto.innerHTML = "";
 
@@ -162,6 +160,8 @@ uploadForm.addEventListener("submit", (e) => {
       .then((newPhoto) => {
         displayWorkModal([newPhoto]);
 
+        console.log(newPhoto);
+
         uploadForm.reset();
         modal2.style.display = "none";
         modal1.style.display = "flex";
@@ -171,3 +171,5 @@ uploadForm.addEventListener("submit", (e) => {
       });
   }
 });
+
+fetchWorkModal();
