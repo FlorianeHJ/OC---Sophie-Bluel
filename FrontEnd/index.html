@@ -128,7 +128,7 @@
           </div>
           <h2 class="titlemodal">Ajout photo</h2>
 
-          <form class="formModal" action="">
+          <form class="formModal" id="uploadForm">
             <button class="btnAddFile">
               <input type="file" id="inputFile" accept="image/*" />
               <img id="imgPreview" alt="Image Preview"></img>
@@ -137,9 +137,9 @@
               <span id="sizeRequired"> jpg, png : 4mo max</span>
             </button>
             <label for="titre">Titre</label>
-            <input type="text" name="Titre" id="titre" />
+            <input type="text" name="Titre" id="title" />
             <label for="categorie">Catégorie</label>
-            <select name="categorie" id="categorie">
+            <select name="categorie" id="category">
               <option value="hotel&restaurant">Hotels & Restaurants</option>
               <option value="objets">Objets</option>
               <option value="appartements">Appartements</option>

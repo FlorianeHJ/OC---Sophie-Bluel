@@ -137,3 +137,37 @@ function previewImage(e) {
 }
 
 document.getElementById("inputFile").addEventListener("change", previewImage);
+
+// Ajout d'une oeuvre - modal 2
+
+uploadForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  if (inputFile.files && inputFile.files[0]) {
+    const formData = new FormData();
+    formData.append("image", inputFile.files[0]);
+    formData.append("title", title);
+    formData.append("category", category);
+
+    const optionsPost = {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+      body: formData,
+    };
+
+    fetch("http://localhost:5678/api/works", optionsPost)
+      .then((response) => response.json())
+      .then((newPhoto) => {
+        displayWorkModal([newPhoto]);
+
+        uploadForm.reset();
+        modal2.style.display = "none";
+        modal1.style.display = "flex";
+      })
+      .catch((error) => {
+        console.log("Erreur lors de l'ajout de l'oeuvre :", error);
+      });
+  }
+});
