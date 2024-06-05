@@ -10,7 +10,7 @@ editBtn.addEventListener("click", () => {
   modal.style.display = "flex";
   modal1.style.display = "flex";
   modal2.style.display = "none";
-  fetchWorkModal();
+  displayWorkModal(allWork);
 });
 
 Array.from(modalCloseBtn).forEach((btn) => {
@@ -24,8 +24,11 @@ modalCloseArrow.addEventListener("click", () => {
   modal1.style.display = "flex";
 });
 
-window.addEventListener("click", (e) => {
+modal.addEventListener("click", (e) => {
   if (e.target === modal) {
+    modal1.style.display = "none";
+    modal2.style.display = "none";
+    modal.style.display = "none";
   }
 });
 
@@ -35,18 +38,6 @@ btnAddWork.addEventListener("click", () => {
 });
 
 // Affichage dynamique des oeuvres - modal 1
-
-const fetchWorkModal = () => {
-  fetch("http://localhost:5678/api/works")
-    .then((response) => response.json())
-    .then((dataModal) => {
-      console.log(dataModal);
-      displayWorkModal(dataModal);
-    })
-    .catch((error) => {
-      console.error("Erreur lors de la récupération des œuvres :", error);
-    });
-};
 
 const displayWorkModal = (workModal) => {
   displayPhoto.innerHTML = "";
@@ -94,11 +85,8 @@ const deleteWork = (id) => {
   fetch(urlDeleteWorks + id, requestOptionsDelete)
     .then((response) => {
       if (response.ok) {
-        const imgContainer = document.getElementById(`img-container-${id}`);
-
-        if (imgContainer) {
-          imgContainer.remove();
-        }
+        console.log(allWork);
+        console.log(id);
       } else {
         console.log("Erreur lors de la suppression de l'oeuvre");
       }
@@ -140,12 +128,12 @@ document.getElementById("inputFile").addEventListener("change", previewImage);
 
 uploadForm.addEventListener("submit", (e) => {
   e.preventDefault();
-
+  console.log(category.value);
   if (inputFile.files && inputFile.files[0]) {
     const formData = new FormData();
     formData.append("image", inputFile.files[0]);
-    formData.append("title", title);
-    formData.append("category", category);
+    formData.append("title", title.value);
+    formData.append("category", category.value);
 
     const optionsPost = {
       method: "POST",
@@ -171,5 +159,3 @@ uploadForm.addEventListener("submit", (e) => {
       });
   }
 });
-
-fetchWorkModal();

@@ -6,7 +6,7 @@ if (localStorage.getItem("token")) {
   editionmode.style.display = "flex";
   logout.style.display = "flex";
   login.style.display = "none";
-} else console.log("nopppppp");
+}
 
 logout.addEventListener("click", (e) => {
   localStorage.removeItem("token");

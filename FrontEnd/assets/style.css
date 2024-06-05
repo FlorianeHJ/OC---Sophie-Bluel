@@ -548,16 +548,16 @@ footer nav ul {
   width: 40%;
 }
 
-#btnAddWork:before {
+/* #btnAddWork:before {
   content: "";
-  position: absolute;
+  display: block;
   width: 220%;
   background-color: rgba(128, 128, 128, 0.445);
   height: 1px;
-  top: -25px;
+  top: -2p0x;
   right: 0;
   transform: translateX(26%);
-}
+} */
 
 .modalClose {
   display: flex;
@@ -661,16 +661,16 @@ select {
   position: relative;
   margin: 60px 139px 0 139px;
 }
-
+/* 
 .formModal input[type="submit"]:before {
   content: "";
-  position: absolute;
+  display: block;
   width: 200%;
   background-color: rgba(128, 128, 128, 0.445);
   height: 1px;
   top: 0;
   right: 0;
-}
+} */
 
 #imgPreview {
   display: none;
