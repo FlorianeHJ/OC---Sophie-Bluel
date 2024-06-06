@@ -130,7 +130,7 @@
 
           <form class="formModal" id="uploadForm">
             <button class="btnAddFile">
-              <input type="file" id="inputFile" accept="image/*" />
+              <input type="file" id="inputFile" accept="image/png, image/jpeg" />
               <img id="imgPreview" alt="Image Preview"></img>
               <span class="fileIcon"><i class="fa-regular fa-image"></i></span>
               <p id="addPhotos">+ Ajouter photo</p>
@@ -138,13 +138,16 @@
             </button>
             <label for="titre">Titre</label>
             <input type="text" name="Titre" id="title" />
+            <p id="errorMessage">Veuillez remplir le champ titre</p>
             <label for="categorie">Catégorie</label>
             <select name="categorie" id="category">
               <option value="3">Hotels & Restaurants</option>
               <option value="1">Objets</option>
               <option value="2">Appartements</option>
             </select>
+            <div class="horizontalLine"></div>
             <input type="submit" value="Valider" />
+            
           </form>
         </div>
       </div>

@@ -85,8 +85,9 @@ const deleteWork = (id) => {
   fetch(urlDeleteWorks + id, requestOptionsDelete)
     .then((response) => {
       if (response.ok) {
-        console.log(allWork);
-        console.log(id);
+        allWork = allWork.filter((work) => work.id != id);
+        displayWorkModal(allWork);
+        displayWork(allWork);
       } else {
         console.log("Erreur lors de la suppression de l'oeuvre");
       }
@@ -128,7 +129,14 @@ document.getElementById("inputFile").addEventListener("change", previewImage);
 
 uploadForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log(category.value);
+
+  if (title.value.trim() === "") {
+    errorMessage.style.display = "flex";
+    return;
+  } else {
+    errorMessage.style.display = "none";
+  }
+
   if (inputFile.files && inputFile.files[0]) {
     const formData = new FormData();
     formData.append("image", inputFile.files[0]);
@@ -146,9 +154,9 @@ uploadForm.addEventListener("submit", (e) => {
     fetch("http://localhost:5678/api/works", optionsPost)
       .then((response) => response.json())
       .then((newPhoto) => {
-        displayWorkModal([newPhoto]);
-
-        console.log(newPhoto);
+        allWork.push(newPhoto);
+        displayWorkModal(allWork);
+        displayWork(allWork);
 
         uploadForm.reset();
         modal2.style.display = "none";
