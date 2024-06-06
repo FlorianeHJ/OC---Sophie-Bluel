@@ -23,7 +23,7 @@ form.addEventListener("submit", (e) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
-      Accepte: "application/json",
+      Accept: "application/json",
     },
     body: JSON.stringify({ email: emailValue, password: passwordValue }),
   };
@@ -37,5 +37,8 @@ form.addEventListener("submit", (e) => {
       } else {
         msgerror2.style.display = "flex";
       }
+    })
+    .catch((error) => {
+      console.log("Erreur lors de la récupération des données :", error);
     });
 });

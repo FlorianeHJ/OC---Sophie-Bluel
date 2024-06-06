@@ -535,6 +535,8 @@ footer nav ul {
 .addWork {
   display: flex;
   justify-content: center;
+  border-top: 1.5px solid gainsboro;
+  margin: 10px 20px 0 20px;
 }
 
 #btnAddWork {
@@ -649,7 +651,7 @@ select {
   font-family: "Syne";
   font-size: 12px;
   position: relative;
-  margin: 60px 139px 0 139px;
+  margin: 0px 139px 0 139px;
 }
 
 #imgPreview {
@@ -661,9 +663,11 @@ select {
   font-size: 10px;
   color: red;
   font-weight: bold;
-  margin: 5px 0 -10px 0;
 }
 
-.addWork {
-  border-top: 1px solid gainsboro;
+.horizontalLine {
+  width: 100%;
+  height: 1px;
+  border-top: 1.5px solid gainsboro;
+  margin: 30px auto;
 }
