@@ -4,7 +4,11 @@ const modal2 = document.querySelector(".modal2");
 const modalCloseBtn = document.getElementsByClassName("modalCloseBtn");
 const modalCloseArrow = document.querySelector(".modalCloseArrow");
 const displayPhoto = document.querySelector(".displayPhoto");
+
+const fileIcon = document.querySelector(".fileIcon");
+const btnAddFile = document.querySelector(".btnAddFile");
 const urlDeleteWorks = "http://localhost:5678/api/works/";
+const validateButton = modal2.querySelector('input[type="submit"]');
 
 editBtn.addEventListener("click", () => {
   modal.style.display = "flex";
@@ -113,8 +117,6 @@ function previewImage(e) {
     };
     reader.readAsDataURL(inputFileImg.files[0]);
 
-    const fileIcon = document.querySelector(".fileIcon");
-    const btnAddFile = document.querySelector(".btnAddFile");
     fileIcon.style.display = "none";
     addPhotos.style.display = "none";
     sizeRequired.style.display = "none";
@@ -124,6 +126,12 @@ function previewImage(e) {
 }
 
 document.getElementById("inputFile").addEventListener("change", previewImage);
+
+function checkFormValidity() {
+  if (inputFile.files && inputFile.files[0] && title.value.trim() !== "")
+    validateButton.style.backgroundColor = "#1d6154";
+}
+title.addEventListener("input", checkFormValidity);
 
 // Ajout d'une oeuvre - modal 2
 
@@ -159,6 +167,12 @@ uploadForm.addEventListener("submit", (e) => {
         displayWork(allWork);
 
         uploadForm.reset();
+        imgPreview.style.display = "none";
+        fileIcon.style.display = "block";
+        addPhotos.style.display = "block";
+        sizeRequired.style.display = "block";
+        btnAddFile.style.padding = "";
+
         modal2.style.display = "none";
         modal1.style.display = "flex";
       })
