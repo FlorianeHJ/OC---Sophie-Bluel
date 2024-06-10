@@ -449,7 +449,7 @@ footer nav ul {
   display: none;
 }
 
-.modal-container {
+.modalContainer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -461,7 +461,7 @@ footer nav ul {
   border-radius: 5px;
 }
 
-.modal-container h2 {
+.modalContainer h2 {
   font-size: 23px;
   font-family: "Work Sans";
   color: black;
@@ -557,7 +557,7 @@ footer nav ul {
   justify-content: space-between;
 }
 
-.titlemodal {
+.titleModal {
   padding-bottom: 30px;
 }
 
