@@ -120,6 +120,15 @@ modalCloseArrow.classList.add("modalCloseArrow");
 modalCloseArrow.innerHTML = `<i class="fa-solid fa-arrow-left"></i>`;
 modalClose.appendChild(modalCloseArrow);
 
+modalCloseArrow.addEventListener("click", () => {
+  resetModal(), displayWorkModal(allWork);
+});
+
+function resetModal() {
+  const dynamicElements = document.querySelectorAll(".formModal");
+  dynamicElements.forEach((element) => element.remove());
+}
+
 btnAddWork.addEventListener("click", () => {
   const formModal = document.createElement("form");
   formModal.classList.add("formModal");
@@ -208,11 +217,6 @@ btnAddWork.addEventListener("click", () => {
   titleModal.innerHTML = "Ajout photo";
   displayPhoto.style.display = "none";
 });
-
-// modalCloseArrow.addEventListener("click", () => {
-//   modal2.style.display = "none";
-//   modal1.style.display = "flex";
-// });
 
 // Afficher l'oeuvre choisie
 

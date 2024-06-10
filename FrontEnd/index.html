@@ -102,57 +102,6 @@
 
     <!-- ************ MODAL ************* -->
 
-    <aside class="modal" role="dialog">
-      <div class="modal1">
-        <div class="modal-container">
-          <button id="modalCloseBtn" class="modalCloseBtn">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-          <h2 class="titleModal">Galerie photo</h2>
-          <div class="displayPhoto"></div>
-          <div class="addWork">
-            <button id="btnAddWork">Ajouter une photo</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal2">
-        <div class="modal-container">
-          <div class="modalClose">
-            <button class="modalCloseBtn">
-              <i class="fa-solid fa-xmark"></i>
-            </button>
-            <button class="modalCloseArrow">
-              <i class="fa-solid fa-arrow-left"></i>
-            </button>
-          </div>
-          <h2 class="titleModal">Ajout photo</h2>
-
-          <form class="formModal" id="uploadForm">
-            <button class="btnAddFile">
-              <input type="file" id="inputFile" accept="image/png, image/jpeg" />
-              <img id="imgPreview" alt="Image Preview"></img>
-              <span class="fileIcon"><i class="fa-regular fa-image"></i></span>
-              <p id="addPhotos">+ Ajouter photo</p>
-              <span id="sizeRequired"> jpg, png : 4mo max</span>
-            </button>
-            <label for="titre">Titre</label>
-            <input type="text" name="Titre" id="title" />
-            <p id="errorMessage">Veuillez remplir le champ titre</p>
-            <label for="categorie">Catégorie</label>
-            <select name="categorie" id="category">
-              <option value="3">Hotels & Restaurants</option>
-              <option value="1">Objets</option>
-              <option value="2">Appartements</option>
-            </select>
-            <div class="horizontalLine"></div>
-            <input type="submit" value="Valider" />
-            
-          </form>
-        </div>
-      </div>
-    </aside>
-
     <script src="./index.js"></script>
     <script src="./admin.js"></script>
     <script src="./modal.js"></script>
