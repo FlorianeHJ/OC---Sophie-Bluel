@@ -87,7 +87,7 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
+
   font: inherit;
   vertical-align: baseline;
 }
@@ -442,7 +442,7 @@ footer nav ul {
 
 .modal {
   position: fixed;
-  display: flex;
+
   align-items: center;
   justify-content: center;
   top: 0;
@@ -454,7 +454,6 @@ footer nav ul {
 }
 
 .modalContainer {
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 600px;
@@ -500,11 +499,9 @@ footer nav ul {
 }
 
 .modalCloseArrow {
-  display: flex;
   border: none;
   padding: 0;
   margin: 0;
-  justify-content: flex-start;
 }
 
 .modalCloseArrow i {
@@ -518,7 +515,6 @@ footer nav ul {
 }
 
 .displayPhoto {
-  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -544,7 +540,6 @@ footer nav ul {
 }
 
 .addWork {
-  display: flex;
   justify-content: center;
   border-top: 1.5px solid gainsboro;
   margin: 10px 20px 0 20px;
@@ -562,8 +557,6 @@ footer nav ul {
 }
 
 .formModal {
-  text-align: left;
-  display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: center;
@@ -594,7 +587,6 @@ footer nav ul {
   opacity: 0;
   cursor: pointer;
   z-index: 1;
-  opacity: 0;
 }
 
 .formModal input,
