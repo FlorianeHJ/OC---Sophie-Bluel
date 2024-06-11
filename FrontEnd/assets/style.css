@@ -144,11 +144,16 @@ body {
   font-family: "Work Sans";
   font-size: 14px;
   background: rgb(255, 254, 248);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: flex-start;
 }
 header {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  margin: 30px 0;
 }
 .navbar {
   display: flex;
@@ -188,8 +193,13 @@ nav ul {
   list-style-type: none;
 }
 nav li {
-  padding: 0 10px;
+  padding-left: 2.7em;
   font-size: 1.2em;
+}
+
+nav ul li img {
+  width: 20px;
+  height: 20px;
 }
 
 li:hover {
@@ -241,9 +251,6 @@ li:nth-child(4) {
 #contact {
   width: 50%;
   margin: auto;
-}
-
-#contact > * {
   text-align: center;
 }
 
@@ -405,10 +412,7 @@ footer nav ul {
   background: black;
   color: white;
   display: none;
-  /* position: absolute;
-  width: 100%;
-  left: 0;
-  top: 0; */
+  margin-top: -30px;
 }
 
 #icon {
@@ -461,13 +465,20 @@ footer nav ul {
   border-radius: 5px;
 }
 
-.modalContainer h2 {
-  font-size: 23px;
+.titleModal {
+  font-size: 20px;
   font-family: "Work Sans";
   color: black;
   font-weight: 500;
   display: flex;
   justify-content: center;
+  padding-bottom: 30px;
+}
+
+.modalClose {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
 }
 
 .modalCloseBtn {
@@ -543,7 +554,6 @@ footer nav ul {
   background-color: #1d6154;
   color: white;
   font-weight: lighter;
-
   font-size: 12px;
   margin: 0;
   position: relative;
@@ -551,19 +561,8 @@ footer nav ul {
   width: 40%;
 }
 
-.modalClose {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-}
-
-.titleModal {
-  padding-bottom: 30px;
-}
-
 .formModal {
   text-align: left;
-
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -594,6 +593,8 @@ footer nav ul {
   height: 100%;
   opacity: 0;
   cursor: pointer;
+  z-index: 1;
+  opacity: 0;
 }
 
 .formModal input,
@@ -615,11 +616,6 @@ select {
 .formModal label {
   margin: 2em 0 1em 0;
   font-size: 13px;
-}
-
-.btnAddFile input {
-  z-index: 1;
-  opacity: 0;
 }
 
 .btnAddFile p {
@@ -651,7 +647,7 @@ select {
   font-family: "Syne";
   font-size: 12px;
   position: relative;
-  margin: 0px 139px 0 139px;
+  margin: 50px 139px 0 139px;
 }
 
 #imgPreview {
