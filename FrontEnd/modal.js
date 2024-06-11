@@ -144,6 +144,16 @@ modal.addEventListener("click", (e) => {
   }
 });
 
+modalCloseArrow.addEventListener("click", () => {
+  formModal.style.display = "none";
+  modalCloseArrow.style.display = "none";
+  titleModal.innerHTML = "Galerie photos";
+  displayPhoto.style.display = "flex";
+  addWork.style.display = "flex";
+
+  displayWorkModal(allWork);
+});
+
 // Affichage dynamique des oeuvres
 
 const displayWorkModal = (workModal) => {
@@ -204,26 +214,6 @@ const deleteWork = (id) => {
     });
 };
 
-// Ajout des oeuvres
-
-modalCloseArrow.addEventListener("click", () => {
-  formModal.style.display = "none";
-  modalCloseArrow.style.display = "none";
-  titleModal.innerHTML = "Galerie photos";
-  displayPhoto.style.display = "flex";
-  addWork.style.display = "flex";
-
-  displayWorkModal(allWork);
-});
-
-btnAddWork.addEventListener("click", () => {
-  formModal.style.display = "flex";
-  addWork.style.display = "none";
-  modalCloseArrow.style.display = "flex";
-  titleModal.innerHTML = "Ajout photo";
-  displayPhoto.style.display = "none";
-});
-
 // Afficher l'oeuvre choisie
 
 function previewImage(e) {
@@ -256,6 +246,14 @@ title.addEventListener("input", checkFormValidity);
 
 // Ajout d'une oeuvre
 
+btnAddWork.addEventListener("click", () => {
+  formModal.style.display = "flex";
+  addWork.style.display = "none";
+  modalCloseArrow.style.display = "flex";
+  titleModal.innerHTML = "Ajout photo";
+  displayPhoto.style.display = "none";
+});
+
 uploadForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -283,21 +281,22 @@ uploadForm.addEventListener("submit", (e) => {
     fetch("http://localhost:5678/api/works", optionsPost)
       .then((response) => response.json())
       .then((newPhoto) => {
-        uploadForm.reset();
+        allWork.push(newPhoto);
+        displayWorkModal(allWork);
+        displayWork(allWork);
+
+        formModal.reset();
         imgPreview.style.display = "none";
         fileIcon.style.display = "block";
         addPhotos.style.display = "block";
         sizeRequired.style.display = "block";
         btnAddFile.style.padding = "";
 
-        formModal.style.display = "none";
         modalCloseArrow.style.display = "none";
         titleModal.innerHTML = "Galerie photos";
         displayPhoto.style.display = "flex";
-
-        allWork.push(newPhoto);
-        displayWorkModal(allWork);
-        displayWork(allWork);
+        addWork.style.display = "flex";
+        formModal.style.display = "none";
       })
       .catch((error) => {
         console.log("Erreur lors de l'ajout de l'oeuvre :", error);
