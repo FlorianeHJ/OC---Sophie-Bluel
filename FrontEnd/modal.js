@@ -1,47 +1,61 @@
-const modal = document.querySelector(".modal");
-const modal1 = document.querySelector(".modal1");
-const modal2 = document.querySelector(".modal2");
-const modalCloseBtn = document.getElementsByClassName("modalCloseBtn");
-const modalCloseArrow = document.querySelector(".modalCloseArrow");
-const displayPhoto = document.querySelector(".displayPhoto");
+const modal = document.createElement("div");
+modal.classList.add("modal");
+document.body.appendChild(modal);
 
-const fileIcon = document.querySelector(".fileIcon");
-const btnAddFile = document.querySelector(".btnAddFile");
+const modalContainer = document.createElement("div");
+modalContainer.classList.add("modalContainer");
+modal.appendChild(modalContainer);
+
+const modalClose = document.createElement("div");
+modalClose.classList.add("modalClose");
+modalContainer.appendChild(modalClose);
+
+const modalCloseBtn = document.createElement("button");
+modalCloseBtn.classList.add("modalCloseBtn");
+modalCloseBtn.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
+modalClose.appendChild(modalCloseBtn);
+
+const titleModal = document.createElement("h2");
+titleModal.textContent = "Galerie photos";
+titleModal.classList.add("titleModal");
+modalContainer.appendChild(titleModal);
+
+const displayPhoto = document.createElement("div");
+displayPhoto.classList.add("displayPhoto");
+modalContainer.appendChild(displayPhoto);
+
+const addWork = document.createElement("div");
+addWork.classList.add("addWork");
+modalContainer.appendChild(addWork);
+
+const btnAddWork = document.createElement("button");
+btnAddWork.setAttribute("id", "btnAddWork");
+btnAddWork.textContent = "Ajouter une photo";
+addWork.appendChild(btnAddWork);
+
 const urlDeleteWorks = "http://localhost:5678/api/works/";
-const validateButton = modal2.querySelector('input[type="submit"]');
 
 editBtn.addEventListener("click", () => {
   modal.style.display = "flex";
-  modal1.style.display = "flex";
-  modal2.style.display = "none";
+  modalContainer.style.display = "flex";
+  modalCloseArrow.style.display = "none";
+  formModal.style.display = "none";
+  addWork.style.display = "flex";
   displayWorkModal(allWork);
 });
 
-Array.from(modalCloseBtn).forEach((btn) => {
-  btn.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
-});
-
-modalCloseArrow.addEventListener("click", () => {
-  modal2.style.display = "none";
-  modal1.style.display = "flex";
+modalCloseBtn.addEventListener("click", () => {
+  modal.style.display = "none";
 });
 
 modal.addEventListener("click", (e) => {
   if (e.target === modal) {
-    modal1.style.display = "none";
-    modal2.style.display = "none";
+    modalContainer.style.display = "none";
     modal.style.display = "none";
   }
 });
 
-btnAddWork.addEventListener("click", () => {
-  modal1.style.display = "none";
-  modal2.style.display = "flex";
-});
-
-// Affichage dynamique des oeuvres - modal 1
+// Affichage dynamique des oeuvres
 
 const displayWorkModal = (workModal) => {
   displayPhoto.innerHTML = "";
@@ -101,9 +115,117 @@ const deleteWork = (id) => {
     });
 };
 
-// Ajout des oeuvres - modal 2
+// Ajout des oeuvres
 
-// Afficher l'oeuvre choisie dans la modal 2
+const formModal = document.createElement("form");
+formModal.classList.add("formModal");
+formModal.setAttribute("id", "uploadForm");
+modalContainer.appendChild(formModal);
+
+const btnAddFile = document.createElement("button");
+btnAddFile.classList.add("btnAddFile");
+formModal.appendChild(btnAddFile);
+
+const inputFile = document.createElement("input");
+inputFile.setAttribute("type", "file");
+inputFile.setAttribute("id", "inputFile");
+inputFile.setAttribute("accept", "image/png, image/jpeg");
+btnAddFile.appendChild(inputFile);
+
+const imgPreview = document.createElement("img");
+imgPreview.classList.add("imgPreview");
+imgPreview.setAttribute("id", "imgPreview");
+imgPreview.setAttribute("alt", "Image Preview");
+btnAddFile.appendChild(imgPreview);
+
+const fileIcon = document.createElement("span");
+fileIcon.classList.add("fileIcon");
+fileIcon.innerHTML = `<i class="fa-regular fa-image"></i>`;
+btnAddFile.appendChild(fileIcon);
+
+const addPhotos = document.createElement("p");
+addPhotos.setAttribute("id", "addPhotos");
+addPhotos.innerHTML = "+ Ajouter photo";
+btnAddFile.appendChild(addPhotos);
+
+const sizeRequired = document.createElement("span");
+sizeRequired.setAttribute("id", "sizeRequired");
+sizeRequired.innerHTML = "jpg, png : 4mo max";
+btnAddFile.appendChild(sizeRequired);
+
+const labelTitre = document.createElement("label");
+labelTitre.setAttribute("for", "title");
+labelTitre.textContent = "Titre";
+formModal.appendChild(labelTitre);
+
+const inputTitre = document.createElement("input");
+inputTitre.setAttribute("type", "text");
+inputTitre.setAttribute("name", "Titre");
+inputTitre.setAttribute("id", "title");
+formModal.appendChild(inputTitre);
+
+const errorMessage = document.createElement("p");
+errorMessage.setAttribute("id", "errorMessage");
+errorMessage.innerHTML = "Veuillez remplir le champ titre";
+formModal.appendChild(errorMessage);
+
+const labelCategory = document.createElement("label");
+labelCategory.setAttribute("for", "category");
+labelCategory.textContent = "Catégorie";
+formModal.appendChild(labelCategory);
+
+const selectCategory = document.createElement("select");
+selectCategory.setAttribute("name", "categorie");
+selectCategory.setAttribute("id", "category");
+formModal.appendChild(selectCategory);
+
+const options = [
+  { value: "3", text: "Hotels & Restaurants" },
+  { value: "1", text: "Objets" },
+  { value: "2", text: "Appartements" },
+];
+
+options.forEach((optionData) => {
+  const option = document.createElement("option");
+  option.value = optionData.value;
+  option.textContent = optionData.text;
+  selectCategory.appendChild(option);
+});
+
+const modalCloseArrow = document.createElement("button");
+modalCloseArrow.classList.add("modalCloseArrow");
+modalCloseArrow.innerHTML = `<i class="fa-solid fa-arrow-left"></i>`;
+modalClose.appendChild(modalCloseArrow);
+
+modalCloseArrow.addEventListener("click", () => {
+  resetModal();
+  modalCloseArrow.style.display = "none";
+  titleModal.innerHTML = "Galerie photos";
+  displayPhoto.style.display = "flex";
+  displayWorkModal(allWork);
+});
+
+function resetModal() {
+  const dynamicElements = document.querySelectorAll(".formModal");
+  dynamicElements.forEach((element) => element.remove());
+}
+
+btnAddWork.addEventListener("click", () => {
+  formModal.style.display = "flex";
+
+  const inputSubmit = document.createElement("input");
+  inputSubmit.setAttribute("type", "submit");
+  inputSubmit.setAttribute("value", "Valider");
+  formModal.appendChild(inputSubmit);
+
+  addWork.style.display = "none";
+
+  modalCloseArrow.style.display = "flex";
+  titleModal.innerHTML = "Ajout photo";
+  displayPhoto.style.display = "none";
+});
+
+// Afficher l'oeuvre choisie
 
 function previewImage(e) {
   const inputFileImg = e.target;
@@ -125,7 +247,7 @@ function previewImage(e) {
   }
 }
 
-document.getElementById("inputFile").addEventListener("change", previewImage);
+inputFile.addEventListener("change", previewImage);
 
 function checkFormValidity() {
   if (inputFile.files && inputFile.files[0] && title.value.trim() !== "")
@@ -133,7 +255,7 @@ function checkFormValidity() {
 }
 title.addEventListener("input", checkFormValidity);
 
-// Ajout d'une oeuvre - modal 2
+// Ajout d'une oeuvre
 
 uploadForm.addEventListener("submit", (e) => {
   e.preventDefault();
