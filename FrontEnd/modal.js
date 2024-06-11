@@ -1,3 +1,5 @@
+// Création des éléments de la modal et des formulaires dynamiquement
+
 const modal = document.createElement("div");
 modal.classList.add("modal");
 document.body.appendChild(modal);
@@ -33,7 +35,94 @@ btnAddWork.setAttribute("id", "btnAddWork");
 btnAddWork.textContent = "Ajouter une photo";
 addWork.appendChild(btnAddWork);
 
+const formModal = document.createElement("form");
+formModal.classList.add("formModal");
+formModal.setAttribute("id", "uploadForm");
+modalContainer.appendChild(formModal);
+
+const btnAddFile = document.createElement("button");
+btnAddFile.classList.add("btnAddFile");
+formModal.appendChild(btnAddFile);
+
+const inputFile = document.createElement("input");
+inputFile.setAttribute("type", "file");
+inputFile.setAttribute("id", "inputFile");
+inputFile.setAttribute("accept", "image/png, image/jpeg");
+btnAddFile.appendChild(inputFile);
+
+const imgPreview = document.createElement("img");
+imgPreview.classList.add("imgPreview");
+imgPreview.setAttribute("id", "imgPreview");
+imgPreview.setAttribute("alt", "Image Preview");
+btnAddFile.appendChild(imgPreview);
+
+const fileIcon = document.createElement("span");
+fileIcon.classList.add("fileIcon");
+fileIcon.innerHTML = `<i class="fa-regular fa-image"></i>`;
+btnAddFile.appendChild(fileIcon);
+
+const addPhotos = document.createElement("p");
+addPhotos.setAttribute("id", "addPhotos");
+addPhotos.innerHTML = "+ Ajouter photo";
+btnAddFile.appendChild(addPhotos);
+
+const sizeRequired = document.createElement("span");
+sizeRequired.setAttribute("id", "sizeRequired");
+sizeRequired.innerHTML = "jpg, png : 4mo max";
+btnAddFile.appendChild(sizeRequired);
+
+const labelTitre = document.createElement("label");
+labelTitre.setAttribute("for", "title");
+labelTitre.textContent = "Titre";
+formModal.appendChild(labelTitre);
+
+const inputTitre = document.createElement("input");
+inputTitre.setAttribute("type", "text");
+inputTitre.setAttribute("name", "Titre");
+inputTitre.setAttribute("id", "title");
+formModal.appendChild(inputTitre);
+
+const errorMessage = document.createElement("p");
+errorMessage.setAttribute("id", "errorMessage");
+errorMessage.innerHTML = "Veuillez remplir le champ titre";
+formModal.appendChild(errorMessage);
+
+const labelCategory = document.createElement("label");
+labelCategory.setAttribute("for", "category");
+labelCategory.textContent = "Catégorie";
+formModal.appendChild(labelCategory);
+
+const selectCategory = document.createElement("select");
+selectCategory.setAttribute("name", "categorie");
+selectCategory.setAttribute("id", "category");
+formModal.appendChild(selectCategory);
+
+const options = [
+  { value: "3", text: "Hotels & Restaurants" },
+  { value: "1", text: "Objets" },
+  { value: "2", text: "Appartements" },
+];
+
+options.forEach((optionData) => {
+  const option = document.createElement("option");
+  option.value = optionData.value;
+  option.textContent = optionData.text;
+  selectCategory.appendChild(option);
+});
+
+const modalCloseArrow = document.createElement("button");
+modalCloseArrow.classList.add("modalCloseArrow");
+modalCloseArrow.innerHTML = `<i class="fa-solid fa-arrow-left"></i>`;
+modalClose.appendChild(modalCloseArrow);
+
+const inputSubmit = document.createElement("input");
+inputSubmit.setAttribute("type", "submit");
+inputSubmit.setAttribute("value", "Valider");
+formModal.appendChild(inputSubmit);
+
 const urlDeleteWorks = "http://localhost:5678/api/works/";
+
+// Afficher/masquer la modal
 
 editBtn.addEventListener("click", () => {
   modal.style.display = "flex";
@@ -117,109 +206,19 @@ const deleteWork = (id) => {
 
 // Ajout des oeuvres
 
-const formModal = document.createElement("form");
-formModal.classList.add("formModal");
-formModal.setAttribute("id", "uploadForm");
-modalContainer.appendChild(formModal);
-
-const btnAddFile = document.createElement("button");
-btnAddFile.classList.add("btnAddFile");
-formModal.appendChild(btnAddFile);
-
-const inputFile = document.createElement("input");
-inputFile.setAttribute("type", "file");
-inputFile.setAttribute("id", "inputFile");
-inputFile.setAttribute("accept", "image/png, image/jpeg");
-btnAddFile.appendChild(inputFile);
-
-const imgPreview = document.createElement("img");
-imgPreview.classList.add("imgPreview");
-imgPreview.setAttribute("id", "imgPreview");
-imgPreview.setAttribute("alt", "Image Preview");
-btnAddFile.appendChild(imgPreview);
-
-const fileIcon = document.createElement("span");
-fileIcon.classList.add("fileIcon");
-fileIcon.innerHTML = `<i class="fa-regular fa-image"></i>`;
-btnAddFile.appendChild(fileIcon);
-
-const addPhotos = document.createElement("p");
-addPhotos.setAttribute("id", "addPhotos");
-addPhotos.innerHTML = "+ Ajouter photo";
-btnAddFile.appendChild(addPhotos);
-
-const sizeRequired = document.createElement("span");
-sizeRequired.setAttribute("id", "sizeRequired");
-sizeRequired.innerHTML = "jpg, png : 4mo max";
-btnAddFile.appendChild(sizeRequired);
-
-const labelTitre = document.createElement("label");
-labelTitre.setAttribute("for", "title");
-labelTitre.textContent = "Titre";
-formModal.appendChild(labelTitre);
-
-const inputTitre = document.createElement("input");
-inputTitre.setAttribute("type", "text");
-inputTitre.setAttribute("name", "Titre");
-inputTitre.setAttribute("id", "title");
-formModal.appendChild(inputTitre);
-
-const errorMessage = document.createElement("p");
-errorMessage.setAttribute("id", "errorMessage");
-errorMessage.innerHTML = "Veuillez remplir le champ titre";
-formModal.appendChild(errorMessage);
-
-const labelCategory = document.createElement("label");
-labelCategory.setAttribute("for", "category");
-labelCategory.textContent = "Catégorie";
-formModal.appendChild(labelCategory);
-
-const selectCategory = document.createElement("select");
-selectCategory.setAttribute("name", "categorie");
-selectCategory.setAttribute("id", "category");
-formModal.appendChild(selectCategory);
-
-const options = [
-  { value: "3", text: "Hotels & Restaurants" },
-  { value: "1", text: "Objets" },
-  { value: "2", text: "Appartements" },
-];
-
-options.forEach((optionData) => {
-  const option = document.createElement("option");
-  option.value = optionData.value;
-  option.textContent = optionData.text;
-  selectCategory.appendChild(option);
-});
-
-const modalCloseArrow = document.createElement("button");
-modalCloseArrow.classList.add("modalCloseArrow");
-modalCloseArrow.innerHTML = `<i class="fa-solid fa-arrow-left"></i>`;
-modalClose.appendChild(modalCloseArrow);
-
 modalCloseArrow.addEventListener("click", () => {
-  resetModal();
+  formModal.style.display = "none";
   modalCloseArrow.style.display = "none";
   titleModal.innerHTML = "Galerie photos";
   displayPhoto.style.display = "flex";
+  addWork.style.display = "flex";
+
   displayWorkModal(allWork);
 });
 
-function resetModal() {
-  const dynamicElements = document.querySelectorAll(".formModal");
-  dynamicElements.forEach((element) => element.remove());
-}
-
 btnAddWork.addEventListener("click", () => {
   formModal.style.display = "flex";
-
-  const inputSubmit = document.createElement("input");
-  inputSubmit.setAttribute("type", "submit");
-  inputSubmit.setAttribute("value", "Valider");
-  formModal.appendChild(inputSubmit);
-
   addWork.style.display = "none";
-
   modalCloseArrow.style.display = "flex";
   titleModal.innerHTML = "Ajout photo";
   displayPhoto.style.display = "none";
@@ -251,7 +250,7 @@ inputFile.addEventListener("change", previewImage);
 
 function checkFormValidity() {
   if (inputFile.files && inputFile.files[0] && title.value.trim() !== "")
-    validateButton.style.backgroundColor = "#1d6154";
+    inputSubmit.style.backgroundColor = "#1d6154";
 }
 title.addEventListener("input", checkFormValidity);
 
@@ -284,10 +283,6 @@ uploadForm.addEventListener("submit", (e) => {
     fetch("http://localhost:5678/api/works", optionsPost)
       .then((response) => response.json())
       .then((newPhoto) => {
-        allWork.push(newPhoto);
-        displayWorkModal(allWork);
-        displayWork(allWork);
-
         uploadForm.reset();
         imgPreview.style.display = "none";
         fileIcon.style.display = "block";
@@ -295,8 +290,14 @@ uploadForm.addEventListener("submit", (e) => {
         sizeRequired.style.display = "block";
         btnAddFile.style.padding = "";
 
-        modal2.style.display = "none";
-        modal1.style.display = "flex";
+        formModal.style.display = "none";
+        modalCloseArrow.style.display = "none";
+        titleModal.innerHTML = "Galerie photos";
+        displayPhoto.style.display = "flex";
+
+        allWork.push(newPhoto);
+        displayWorkModal(allWork);
+        displayWork(allWork);
       })
       .catch((error) => {
         console.log("Erreur lors de l'ajout de l'oeuvre :", error);
