@@ -25,7 +25,17 @@ const fetchWork = () => {
       // Ajout d'un bouton pour afficher toutes les oeuvres
       const allButton = document.createElement("button");
       allButton.textContent = "Tous";
-      allButton.addEventListener("click", () => displayWork(allWork));
+
+      allButton.addEventListener("click", () => {
+        displayWork(allWork);
+        buttonsContainer.querySelectorAll("button").forEach((btn) => {
+          btn.classList.remove("selected");
+        });
+
+        allButton.classList.add("selected");
+      });
+      allButton.classList.add("filter-button");
+      allButton.classList.add("selected");
       buttonsContainer.appendChild(allButton);
     });
 };
@@ -86,6 +96,11 @@ const createFilterButtons = (categoriesData) => {
 
     button.addEventListener("click", () => {
       filterByCategories(id);
+      buttonsContainer.querySelectorAll("button").forEach((btn) => {
+        btn.classList.remove("selected");
+      });
+
+      button.classList.add("selected");
     });
     buttonsContainer.appendChild(button);
   });

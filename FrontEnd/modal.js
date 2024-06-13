@@ -118,6 +118,7 @@ modalClose.appendChild(modalCloseArrow);
 const inputSubmit = document.createElement("input");
 inputSubmit.setAttribute("type", "submit");
 inputSubmit.setAttribute("value", "Valider");
+inputSubmit.setAttribute("disabled", "true");
 formModal.appendChild(inputSubmit);
 
 const urlDeleteWorks = "http://localhost:5678/api/works/";
@@ -130,6 +131,7 @@ editBtn.addEventListener("click", () => {
   modalCloseArrow.style.display = "none";
   formModal.style.display = "none";
   addWork.style.display = "flex";
+  displayPhoto.style.display = "flex";
   displayWorkModal(allWork);
 });
 
@@ -239,8 +241,11 @@ function previewImage(e) {
 inputFile.addEventListener("change", previewImage);
 
 function checkFormValidity() {
-  if (inputFile.files && inputFile.files[0] && title.value.trim() !== "")
-    inputSubmit.style.backgroundColor = "#1d6154";
+  if (inputFile.files && inputFile.files[0] && title.value.trim() !== "") {
+    inputSubmit.removeAttribute("disabled");
+  } else {
+    inputSubmit.setAttribute("disabled", "true");
+  }
 }
 title.addEventListener("input", checkFormValidity);
 
@@ -286,6 +291,7 @@ uploadForm.addEventListener("submit", (e) => {
         displayWork(allWork);
 
         formModal.reset();
+        inputSubmit.setAttribute("disabled", "true");
         imgPreview.style.display = "none";
         fileIcon.style.display = "block";
         addPhotos.style.display = "block";

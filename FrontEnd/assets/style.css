@@ -319,6 +319,11 @@ button {
   cursor: pointer;
 }
 
+.filter-button.selected {
+  background: #1d6154;
+  color: white;
+}
+
 button:first-child {
   background: #1d6154;
   color: white;
@@ -515,6 +520,7 @@ footer nav ul {
 }
 
 .displayPhoto {
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -635,11 +641,15 @@ select {
 
 .formModal input[type="submit"] {
   padding: 10px 10px;
-  background: #a7a7a7;
+  background: #1d6154;
   font-family: "Syne";
   font-size: 12px;
   position: relative;
   margin: 50px 139px 0 139px;
+}
+
+.formModal input[type="submit"]:disabled {
+  background: #a7a7a7;
 }
 
 #imgPreview {
