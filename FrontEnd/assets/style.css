@@ -547,7 +547,7 @@ footer nav ul {
 
 .addWork {
   justify-content: center;
-  border-top: 1.5px solid gainsboro;
+  border-top: 1.5px solid #cfcfcf;
   margin: 10px 20px 0 20px;
 }
 
@@ -645,7 +645,7 @@ select {
   font-family: "Syne";
   font-size: 12px;
   position: relative;
-  margin: 50px 139px 0 139px;
+  margin: 10px 139px 0 139px;
 }
 
 .formModal input[type="submit"]:disabled {
@@ -661,4 +661,10 @@ select {
   font-size: 10px;
   color: red;
   font-weight: bold;
+}
+
+#horizontalLigne {
+  margin: 32px 0 18px 0;
+  background: #cfcfcf;
+  height: 1.3px;
 }

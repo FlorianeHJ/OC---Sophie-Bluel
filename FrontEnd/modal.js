@@ -97,6 +97,10 @@ selectCategory.setAttribute("name", "categorie");
 selectCategory.setAttribute("id", "category");
 formModal.appendChild(selectCategory);
 
+const horizontalLigne = document.createElement("div");
+horizontalLigne.setAttribute("id", "horizontalLigne");
+formModal.appendChild(horizontalLigne);
+
 const options = [
   { value: "3", text: "Hotels & Restaurants" },
   { value: "1", text: "Objets" },
