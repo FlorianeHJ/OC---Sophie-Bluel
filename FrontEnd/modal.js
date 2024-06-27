@@ -71,6 +71,11 @@ sizeRequired.setAttribute("id", "sizeRequired");
 sizeRequired.innerHTML = "jpg, png : 4mo max";
 btnAddFile.appendChild(sizeRequired);
 
+const errorMessage2 = document.createElement("p");
+errorMessage2.setAttribute("id", "errorMessage2");
+errorMessage2.innerHTML = "L'image dépasse 4 mo, veuillez réessayer";
+formModal.appendChild(errorMessage2);
+
 const labelTitre = document.createElement("label");
 labelTitre.setAttribute("for", "title");
 labelTitre.textContent = "Titre";
@@ -193,7 +198,7 @@ const displayWorkModal = (workModal) => {
   });
 };
 
-// suppression des oeuvres - modal 1
+// suppression des oeuvres - modal
 const token = localStorage.getItem("token");
 
 const deleteWork = (id) => {
@@ -242,16 +247,27 @@ function previewImage(e) {
   }
 }
 
-inputFile.addEventListener("change", previewImage);
+inputFile.addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  if (file.size > 4 * 1024 * 1024) {
+    errorMessage2.style.display = "flex";
+  } else {
+    errorMessage2.style.display = "none";
+    previewImage(e);
+  }
+  checkFormValidity();
+});
 
 function checkFormValidity() {
-  if (inputFile.files && inputFile.files[0] && title.value.trim() !== "") {
+  const file = inputFile.files[0];
+  if (file && file.size <= 4 * 1024 * 1024 && inputTitre.value.trim() !== "") {
     inputSubmit.removeAttribute("disabled");
   } else {
     inputSubmit.setAttribute("disabled", "true");
   }
 }
-title.addEventListener("input", checkFormValidity);
+
+inputTitre.addEventListener("input", checkFormValidity);
 
 // Ajout d'une oeuvre
 

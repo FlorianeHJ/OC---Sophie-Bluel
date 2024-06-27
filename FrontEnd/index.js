@@ -61,7 +61,7 @@ fetchCategories();
 // Ajout des oeuvres de manière dynamique
 const displayWork = (workData, isModal = false) => {
   const container = isModal ? displayPhoto : gallery;
-  container.innerHTML = ""; // Clear previous work
+  container.innerHTML = "";
 
   workData.forEach(({ imageUrl, title }) => {
     const element = isModal

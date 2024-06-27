@@ -138,6 +138,10 @@ a:visited {
   color: inherit;
 }
 
+a {
+  color: black;
+}
+
 body {
   max-width: 1140px;
   margin: auto;
@@ -662,9 +666,21 @@ select {
   color: red;
   font-weight: bold;
 }
+#errorMessage2 {
+  display: none;
+  font-size: 10px;
+  color: red;
+  font-weight: bold;
+
+  padding: 5px;
+}
 
 #horizontalLigne {
   margin: 32px 0 18px 0;
   background: #cfcfcf;
   height: 1.3px;
+}
+
+footer {
+  background: white;
 }
