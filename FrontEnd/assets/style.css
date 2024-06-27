@@ -660,18 +660,15 @@ select {
   display: none;
 }
 
-#errorMessage {
-  display: none;
-  font-size: 10px;
-  color: red;
-  font-weight: bold;
-}
+#errorMessage,
 #errorMessage2 {
   display: none;
   font-size: 10px;
   color: red;
   font-weight: bold;
+}
 
+#errorMessage2 {
   padding: 5px;
 }
 
